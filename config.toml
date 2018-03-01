@@ -1,4 +1,5 @@
 baseURL = "https://hal.github.io/"
 languageCode = "en-us"
 title = "HAL Management Console"
-theme = "ananke"
+theme = "kube"
+googleAnalytics = "UA-89365654-5"

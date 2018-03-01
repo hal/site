@@ -1,4 +1,4 @@
-baseURL = "http://hal.github.io/"
+baseURL = "https://hal.github.io/"
 languageCode = "en-us"
 title = "HAL Management Console"
 theme = "ananke"

@@ -3,7 +3,7 @@
 
 name = "Hal"
 license = "Apache 2"
-licenselink = "https://www.apache.org/licenses/LICENSE-2.0"
+licenselink = "https://github.com/hal/site/blob/master/LICENSE.txt"
 description = "Theme for the HAL website"
 homepage = "https://hal.github.io/"
 tags = ["responsive", "bootstrap", "documentation", "blog", "font-awesome"]

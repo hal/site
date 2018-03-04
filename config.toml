@@ -3,7 +3,7 @@ description = "HAL is the project name of the management console used in WildFly
 googleAnalytics = "UA-89365654-5"
 languageCode = "en-us"
 title = "HAL Management Console"
-theme = "kube"
+theme = "hal"
 
 [Params]
   author = "Harald Pehl" 

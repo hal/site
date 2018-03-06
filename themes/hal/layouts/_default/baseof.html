@@ -5,17 +5,21 @@
     {{ .Hugo.Generator }}
     {{ partial "meta.html" . }}
     <link rel="canonical" href="{{ .Permalink }}">
-    <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <title>{{ block "title" . }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
 
     {{ template "_internal/google_analytics_async.html" . }}
     {{ partial "favicon.html" . }}
     {{ partial "css.html" . }}
+    {{ partial "script-header.html" . }}
 </head>
 
 <body>
-<header>{{ block "header" . }}{{ end }}</header>
-<main>{{ block "main" . }}{{ end }}</main>
-<footer>{{ block "footer" . }}{{ end }}</footer>
-{{ partial "script.html" . }}
+{{ block "nav" . }}{{ partial "nav.html" . }}{{ end }}
+{{ block "header" . }}{{ end }}
+<main role="main">
+    {{ block "main" . }}{{ end }}
+</main>
+{{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
+{{ partial "script-body.html" . }}
 </body>
 </html>

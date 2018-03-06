@@ -5,20 +5,42 @@ languageCode = "en-us"
 title = "HAL Management Console"
 theme = "hal"
 
-[Params]
-  author = "Harald Pehl" 
-  github = "hpehl" 
-  twitter = "@haraldpehl"
+[[menu.global]]
+  name = "About"
+  weight = 10
+  url = "/about/"
+[[menu.global]]
+  name = "Documentation"
+  weight = 20
+  url = "/documentation/"
+[[menu.global]]
+  name = "Community"
+  weight = 30
+  url = "/community/"
+[[menu.global]]
+  name = "Download"
+  weight = 40
+  url = "/download/"
 
-[[menu.main]]
-    name = "About"
-    weight = -100
-    url = "/about/"
-[[menu.main]]
-    name = "Docs"
-    weight = -100
-    url = "/docs/"
-[[menu.main]]
-    name = "Blog"
-    weight = -100
-    url = "/blog/"
+[[menu.external]]
+    name = "Source Code"
+    identifier = "code"
+    weight = 10
+    post = "fab fa-github"
+    url = "https://github.com/hal/hal.next"
+[[menu.external]]
+    name = "Gitter"
+    identifier = "gitter"
+    weight = 20
+    post = "fab fa-gitter"
+    url = "https://gitter.im/hal/hal.next"
+[[menu.external]]
+    name = "Issues"
+    identifier = "issues"
+    weight = 30
+    post = "fas fa-bug"
+    url = "https://issues.jboss.org/projects/HAL/issues"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"

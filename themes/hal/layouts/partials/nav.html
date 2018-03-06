@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="{{ .Site.BaseURL }}">
+        <img src="{{ "/img/hal-no-reflection.svg" | relURL }}" width="30" height="30" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#hal-navbar"
+            aria-controls="hal-navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="hal-navbar">
+        <ul class="navbar-nav mr-auto">
+            {{ range .Site.Menus.global }}
+                <li class="nav-item"><a class="nav-link" href="{{ .URL }}">{{ .Name }}</a></li>
+            {{ end }}
+        </ul>
+        <ul class="navbar-nav">
+            {{ range .Site.Menus.external }}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ .URL }}" target="{{ .Identifier }}" title="{{ .Name }}">
+                    <span class="{{ .Post }}"></span>
+                </a>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+</nav>

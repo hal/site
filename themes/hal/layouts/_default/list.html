@@ -1,10 +1,9 @@
 {{ define "header" }}List - Header{{ end }}
 {{ define "main" }}
-{{.Content}}
+{{ .Content }}
 <ul>
     {{ range .Pages }}
     <li><a href="{{.URL}}">{{.Title}}</a></li>
     {{ end }}
 </ul>
 {{ end }}
-{{ define "footer" }}List - Footer{{ end }}

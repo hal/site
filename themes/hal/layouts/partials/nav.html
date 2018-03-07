@@ -10,15 +10,13 @@
     <div class="collapse navbar-collapse" id="hal-navbar">
         <ul class="navbar-nav mr-auto">
             {{ range .Site.Menus.global }}
-                <li class="nav-item"><a class="nav-link" href="{{ .URL }}">{{ .Name }}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ .URL }}">{{ .Name }}</a></li>
             {{ end }}
         </ul>
         <ul class="navbar-nav">
             {{ range .Site.Menus.external }}
             <li class="nav-item">
-                <a class="nav-link" href="{{ .URL }}" target="{{ .Identifier }}" title="{{ .Name }}">
-                    <span class="{{ .Post }}"></span>
-                </a>
+                <a class="nav-link" href="{{ .URL }}" title="{{ .Name }}"><span class="{{ .Post }}"></span></a>
             </li>
             {{ end }}
         </ul>

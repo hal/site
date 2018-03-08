@@ -25,7 +25,7 @@ body {
     font-size: 67%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .homepage-feature {
         width: 50%;
     }

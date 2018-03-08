@@ -1,15 +1,24 @@
 {{ define "header" }}
-<div class="homepage-banner d-flex flex-column p-5 align-items-center bg-dark">
+<div class="homepage-banner d-flex flex-column align-items-center bg-dark p-5">
     <div>
         <img class="img-fluid" src="{{ "/img/hal.svg" | relURL }}" alt="">
     </div>
-    <h1 class="display-4 mt-5">HAL Management Console</h1>
-    <p class="lead">HAL ist the project name for the WildFly and JBoss EAP management console.</p>
+    <h1 class="display-4 mt-5 text-center">{{ .Params.description }}</h1>
+    <p class="lead text-center">{{ .Content | markdownify }}</p>
     <a href="#" role="button" class="btn btn-outline-light btn-lg mt-5">Get Started</a>
 </div>
 {{ end }}
+
 {{ define "main" }}
-<section class="homepage-features container-fluid mb-5">
-    {{- partial "features" . -}}
-</section>
+<div class="homepage-features d-lg-flex justify-content-lg-center flex-lg-wrap mb-5">
+    {{ range .Params.features }}
+    <div class="homepage-feature d-flex">
+        <div><img class="homepage-feature-image mr-3" src="{{ .image_path }}"></div>
+        <div>
+            <h3>{{ .heading }}</h3>
+            <p>{{ .tagline }}</p>
+        </div>
+    </div>
+    {{ end }}
+</div>
 {{ end }}

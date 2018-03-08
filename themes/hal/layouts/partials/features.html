@@ -1,0 +1,13 @@
+<div class="d-md-flex justify-content-md-center flex-md-wrap">
+    {{ range .Params.features }}
+        <div class="homepage-feature d-flex">
+            <div>
+                <img class="homepage-feature-image mr-3" src="{{ .image_path }}">
+            </div>
+            <div>
+                <h3>{{ .heading }}</h3>
+                <p>{{ .tagline }}</p>
+            </div>
+        </div>
+    {{ end }}
+</div>

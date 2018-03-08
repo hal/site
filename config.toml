@@ -7,9 +7,9 @@ title = "HAL Management Console"
 theme = "hal"
 
 [[menu.global]]
-  name = "About"
+  name = "Home"
   weight = 10
-  url = "/about/"
+  url = "/"
 [[menu.global]]
   name = "Documentation"
   weight = 20

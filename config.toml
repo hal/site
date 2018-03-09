@@ -8,20 +8,29 @@ theme = "hal"
 
 [[menu.global]]
   name = "Home"
+  identifier = "home"
   weight = 10
   url = "/"
 [[menu.global]]
-  name = "Documentation"
+  name = "What's New"
+  identifier = "whats-new"
   weight = 20
+  url = "/whats-new/"
+[[menu.global]]
+  name = "Documentation"
+  identifier = "documentation"
+  weight = 30
   url = "/documentation/"
 [[menu.global]]
-  name = "Contribute"
-  weight = 30
-  url = "/contribute/"
-[[menu.global]]
-  name = "Download"
+  name = "Development"
+  identifier = "development"
   weight = 40
-  url = "/download/"
+  url = "/development/"
+[[menu.global]]
+  name = "Contribute"
+  identifier = "contribute"
+  weight = 50
+  url = "/contribute/"
 
 [[menu.external]]
   name = "Source Code"
@@ -62,43 +71,38 @@ theme = "hal"
   weight = 120
   url = "https://github.com/hal/elemento"
 [[menu.footer]]
-  name = "Documentation"
-  identifier = "documentation"
+  name = "Learn"
+  identifier = "learn"
   weight = 20
 [[menu.footer]]
-  name = "Get started"
-  parent = "documentation"
+  name = "Documentation"
+  parent = "learn"
   weight = 200
-  url = "/documentation/get-started/"
+  url = "/documentation/"
 [[menu.footer]]
-  name = "End User"
-  parent = "documentation"
+  name = "Development"
+  parent = "learn"
   weight = 210
-  url = "/documentation/end-user"
-[[menu.footer]]
-  name = "Developer"
-  parent = "documentation"
-  weight = 220
-  url = "/documentation/developer"
+  url = "/development/"
 [[menu.footer]]
   name = "Contribute"
   identifier = "contribute"
   weight = 30
 [[menu.footer]]
-  name = "Submit a Bug"
+  name = "How To"
   parent = "contribute"
   weight = 300
+  url = "/contribute/"
+[[menu.footer]]
+  name = "Submit a Bug"
+  parent = "contribute"
+  weight = 310
   url = "https://issues.jboss.org/projects/HAL/issues"
 [[menu.footer]]
   name = "Fork the Code"
   parent = "contribute"
-  weight = 310
-  url = "https://github.com/hal/hal.next/fork"
-[[menu.footer]]
-  name = "Build & Run"
-  parent = "contribute"
   weight = 320
-  url = "/build/"
+  url = "https://github.com/hal/hal.next/fork"
 
 [taxonomies]
   tag = "tags"

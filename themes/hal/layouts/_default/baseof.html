@@ -19,7 +19,7 @@
 <main role="main">
     {{ block "main" . }}{{ end }}
 </main>
-{{ partial "footer.html" . }}
+{{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
 {{ partial "script-body.html" . }}
 </body>
 </html>

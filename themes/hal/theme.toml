@@ -6,15 +6,6 @@ license = "Apache 2"
 licenselink = "https://github.com/hal/site/blob/master/themes/hal/LICENSE.txt"
 description = "Theme for the HAL website"
 homepage = "https://hal.github.io/"
-tags = ["responsive", "bootstrap", "documentation", "blog", "font-awesome"]
-features = ["Responsive Design",
-  "Typography",
-  "Google Analytics",
-  "Paginated Lists",
-  "Reading Time",
-  "Last Modified time",
-  "Word Count",
-  "Related Posts"]
 min_version = "0.36"
 
 [author]

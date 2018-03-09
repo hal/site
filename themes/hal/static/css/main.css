@@ -2,6 +2,18 @@ body {
     font-family: 'Overpass', sans-serif;
 }
 
+.flex-2-per-row {
+    flex: 1 1 50%;
+}
+
+.flex-3-per-row {
+    flex: 1 1 33%;
+}
+
+.flex-4-per-row {
+    flex: 1 1 25%;
+}
+
 .homepage-banner h1,
 .homepage-banner p,
 .footer-dark h6,
@@ -12,11 +24,10 @@ body {
 }
 
 .homepage-feature {
-    flex-grow: 1;
     padding: 4rem 6rem 0 6rem;
 }
 
-.homepage-feature-image {
+.teaser-icon {
     height: auto;
     width: 48px;
 }

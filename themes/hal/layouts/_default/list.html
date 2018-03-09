@@ -1,9 +1,18 @@
-{{ define "header" }}List - Header{{ end }}
 {{ define "main" }}
-{{ .Content }}
-<ul>
-    {{ range .Pages }}
-    <li><a href="{{.URL}}">{{.Title}}</a></li>
-    {{ end }}
-</ul>
+<div class="container-fluid p-5">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+    <div class="d-lg-flex flex-lg-wrap">
+        {{ range .Pages }}
+        <div class="d-flex flex-3-per-row mt-5 pr-5">
+            <div><img class="teaser-icon mr-3" src="{{ .Params.icon }}"></div>
+            <div>
+                <h5 class="card-title">{{ .Title }}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="{{ .URL }}" class="card-link">Read more</a>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>
 {{ end }}

@@ -10,13 +10,13 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="homepage-features d-lg-flex justify-content-lg-center flex-lg-wrap mb-5">
+<div class="d-lg-flex justify-content-lg-center flex-lg-wrap mb-5">
     {{ range .Params.features }}
-    <div class="homepage-feature d-flex">
-        <div><img class="homepage-feature-image mr-3" src="{{ .image_path }}"></div>
+    <div class="homepage-feature d-flex flex-2-per-row">
+        <div><img class="teaser-icon mr-3" src="{{ .icon }}"></div>
         <div>
             <h3>{{ .heading }}</h3>
-            <p>{{ .tagline }}</p>
+            <p>{{ .teaser }}</p>
         </div>
     </div>
     {{ end }}

@@ -2,6 +2,10 @@ body {
     font-family: 'Overpass', sans-serif;
 }
 
+a, a:hover {
+    color: #900;
+}
+
 .flex-2-per-row {
     flex: 1 1 50%;
 }

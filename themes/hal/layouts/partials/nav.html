@@ -10,8 +10,7 @@
                 {{ $isCurrent := $currentPage.IsMenuCurrent "global" . }}
                 {{ $hasCurrent := $currentPage.HasMenuCurrent "global" . }}
                 {{ $sectionEqId := eq $currentPage.Section .Identifier }}
-                {{ $matchURL := eq $currentPage.URL .URL }}
-                <li class="nav-item {{ if or ($isCurrent) (or ($hasCurrent) (or ($sectionEqId) ($matchURL))) }}active{{ end }}">
+                <li class="nav-item {{ if or ($isCurrent) (or ($hasCurrent) ($sectionEqId)) }}active{{ end }}">
                     <a class="nav-link" href="{{ .URL }}">{{ .Name }}</a>
                 </li>
             {{ end }}

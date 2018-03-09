@@ -25,6 +25,6 @@ features:
 
   - heading: Extensions
     icon: /img/plug.png
-    teaser: Customize the console using runtime extensions and a JavaScript API.
+    teaser: Customize the console using runtime extensions and the JavaScript API.
 ---
 HAL ist the project name for the WildFly and JBoss EAP management console.

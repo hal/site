@@ -14,12 +14,12 @@ body {
     flex: 1 1 25%;
 }
 
-.homepage-banner h1,
-.homepage-banner p,
 .footer-dark h6,
 .footer-dark p,
 .footer-dark li,
-.footer-dark a {
+.footer-dark a,
+.homepage-banner h1,
+.homepage-banner p {
     color: rgba(255, 255, 255, .75);
 }
 

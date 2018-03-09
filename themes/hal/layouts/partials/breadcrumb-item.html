@@ -1,0 +1,10 @@
+{{ if .currentPage.Parent }}
+    {{ partial "breadcrumb-item.html" (dict "currentPage" .currentPage.Parent) }}
+{{ end }}
+{{ if not (.currentPage.IsHome)}}
+    {{ if eq .id .currentPage.UniqueID }}
+        <li class="breadcrumb-item active" aria-current="page">{{ .currentPage.Title }}</li>
+    {{ else }}
+        <li class="breadcrumb-item"><a href="{{ .currentPage.RelPermalink }}">{{ .currentPage.Title }}</a></li>
+    {{ end }}
+{{ end }}

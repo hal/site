@@ -4,24 +4,36 @@
 {{ $toc := and (gt .WordCount 400 ) (ne .Params.toc "false") }}
 <div class="container-fluid">
     <div class="row flex-xl-nowrap">
-        <aside class="d-none d-lg-block col-lg-3 border-left border-light hal-aside">
-            {{ if $breadcrumb }}
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
+        <main class="col-12 col-md-12 {{ if $toc }}col-lg-9{{ end }} py-md-3 px-md-5 hal-content" role="main">
+            {{ if and ($breadcrumb) (not ($toc))}}
+                <nav class="hal-breadcrumb-only float-right" aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-white pr-0 pb-0">
                         {{ partial "breadcrumb.html" (dict "currentPage" .Page "id" .UniqueID) }}
                     </ol>
                 </nav>
             {{ end }}
-            {{ if $toc  }}
-                <nav class="hal-toc" aria-label="toc">
-                    {{ .TableOfContents }}
-                </nav>
-            {{ end }}
-        </aside>
-        <main class="col-12 col-md-12 {{ if or ($breadcrumb) ($toc) }}col-lg-9{{ end }} py-md-3 pl-md-5 hal-content" role="main">
             <header><h1 class="display-4">{{ .Title }}</h1></header>
             {{ .Content }}
         </main>
+        {{ if $toc }}
+            <aside class="d-none d-lg-block col-lg-3 hal-aside">
+                <div class="hal-aside-separator">
+                    {{ if $breadcrumb }}
+                        <nav class="hal-breadcrumb" aria-label="breadcrumb">
+                            <h6>You're here:</h6>
+                            <ol class="breadcrumb bg-white py-0">
+                                {{ partial "breadcrumb.html" (dict "currentPage" .Page "id" .UniqueID) }}
+                            </ol>
+                        </nav>
+                        <hr/>
+                    {{ end }}
+                    <div class="hal-toc">
+                        <h6>On this page:</h6>
+                        {{ .TableOfContents }}
+                    </div>
+                </div>
+            </aside>
+        {{ end }}
     </div>
 </div>
 {{ end }}

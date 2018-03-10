@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="container-fluid">
+    <div class="row">
+        <main role="main">
+            <header><h1 class="display-4">{{ .Title }}</h1></header>
+            {{ .Content }}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Target</th>
+                    <th>Download</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{ range .Pages.ByTitle.Reverse }}
+                <tr>
+                    <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+                    <td>{{ .Params.target }}</td>
+                    <td><a href="{{ safeURL .Params.tag }}">{{ .Params.tag }}</a></td>
+                </tr>
+                {{ end }}
+                </tbody>
+            </table>
+        </main>
+    </div>
+</div>
+{{ end }}

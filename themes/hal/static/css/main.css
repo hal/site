@@ -7,18 +7,38 @@ a, a:hover {
 }
 
 .hal-aside {
-    height: calc(100vh - 4rem);
+    height: calc(100vh - 3rem);
     font-size: .875rem;
-    order: 2;
     overflow-y: auto;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     position: sticky;
-    top: 4rem;
+    top: 3rem;
 }
 
-.hal-content {
-    order: 1;
+.hal-aside a, .hal-breadcrumb-only a {
+    color: #6c757d;
+}
+
+.hal-aside h6 {
+    color: #212529;
+    padding-left: 1rem;
+}
+
+.hal-aside, .hal-breadcrumb-only {
+    font-size: .875rem;
+}
+
+.hal-aside-separator {
+    border-left: 1px solid #eee;
+}
+
+.hal-breadcrumb .breadcrumb-item.active, .hal-breadcrumb-only .breadcrumb-item.active {
+    color: #999;
+}
+
+.hal-content p {
+    text-align: justify;
 }
 
 .hal-flex-2-per-row {
@@ -47,12 +67,17 @@ a, a:hover {
 }
 
 .hal-smaller {
-    font-size: 67%;
+    font-size: 0.66rem;
 }
 
 .hal-teaser-icon {
     height: auto;
     width: 48px;
+}
+
+.hal-toc ul {
+    list-style: none;
+    padding-left: 1rem;
 }
 
 @media (min-width: 992px) {

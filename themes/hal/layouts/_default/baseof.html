@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html lang="{{ .Lang }}">
-
 <head>
-    {{ .Hugo.Generator }}
     {{ partial "meta.html" . }}
+    {{ .Hugo.Generator }}
     <link rel="canonical" href="{{ .Permalink }}">
     <title>{{ block "title" . }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
-
     {{ template "_internal/google_analytics_async.html" . }}
     {{ partial "favicon.html" . }}
     {{ partial "css.html" . }}
     {{ partial "script-header.html" . }}
 </head>
-
 <body>
-{{ block "nav" . }}{{ partial "nav.html" . }}{{ end }}
-{{ block "breadcrumb" . }}{{ end }}
-{{ block "header" . }}{{ end }}
-<main role="main" class="container-fluid px-5 py-4">
+    {{ partial "nav.html" . }}
     {{ block "main" . }}{{ end }}
-</main>
-{{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
-{{ partial "script-body.html" . }}
+    {{ partial "footer.html" . }}
+    {{ partial "script-body.html" . }}
 </body>
 </html>

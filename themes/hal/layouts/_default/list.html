@@ -1,19 +1,26 @@
-{{ define "breadcrumb" }}{{ partial "breadcrumb.html" . }}{{ end }}
 {{ define "main" }}
-    <h1>{{ .Title }}</h1>
-    {{ .Content }}
-    {{ with .Pages }}
-        <div class="d-lg-flex flex-lg-wrap">
-            {{ range . }}
-            <div class="d-flex flex-3-per-row pt-5 pr-5">
-                {{ with .Params.icon }}<div><img class="teaser-icon mr-3" src="{{ . }}"></div>{{ end }}
-                <div>
-                    <h5 class="card-title">{{ .Title }}</h5>
-                    <p class="card-text">{{ .Summary }}</p>
-                    <a href="{{ .RelPermalink }}" class="card-link">Read More &raquo;</a>
+<div class="container-fluid">
+    <div class="row">
+        <main role="main">
+            <header><h1 class="display-4">{{ .Title }}</h1></header>
+            {{ .Content }}
+            {{ with .Pages }}
+                <div class="d-lg-flex flex-lg-wrap">
+                    {{ range . }}
+                        <div class="d-flex hal-flex-3-per-row pt-5 pr-5">
+                            {{ with .Params.icon }}
+                                <div><img class="hal-teaser-icon mr-3" src="{{ . }}"></div>
+                            {{ end }}
+                            <div>
+                                <h5 class="card-title">{{ .Title }}</h5>
+                                <p class="card-text">{{ .Summary }}</p>
+                                <a href="{{ .RelPermalink }}" class="card-link">Read More &raquo;</a>
+                            </div>
+                        </div>
+                    {{ end }}
                 </div>
-            </div>
             {{ end }}
-        </div>
-    {{ end }}
+        </main>
+    </div>
+</div>
 {{ end }}

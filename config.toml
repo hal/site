@@ -13,9 +13,9 @@ theme = "hal"
   url = "/"
 [[menu.global]]
   name = "What's New"
-  identifier = "news"
+  identifier = "whats-new"
   weight = 20
-  url = "/news/"
+  url = "/whats-new/"
 [[menu.global]]
   name = "Documentation"
   identifier = "documentation"

@@ -1,5 +1,27 @@
-{{ define "breadcrumb" }}{{ partial "breadcrumb.html" . }}{{ end }}
 {{ define "main" }}
-    <h1>{{ .Title }}</h1>
-    {{ .Content }}
+{{ $depth := len (split .RelPermalink "/") }}
+{{ $breadcrumb := gt $depth 3 }}
+{{ $toc := and (gt .WordCount 400 ) (ne .Params.toc "false") }}
+<div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <aside class="d-none d-lg-block col-lg-3 border-left border-light hal-aside">
+            {{ if $breadcrumb }}
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        {{ partial "breadcrumb.html" (dict "currentPage" .Page "id" .UniqueID) }}
+                    </ol>
+                </nav>
+            {{ end }}
+            {{ if $toc  }}
+                <nav class="hal-toc" aria-label="toc">
+                    {{ .TableOfContents }}
+                </nav>
+            {{ end }}
+        </aside>
+        <main class="col-12 col-md-12 {{ if or ($breadcrumb) ($toc) }}col-lg-9{{ end }} py-md-3 pl-md-5 hal-content" role="main">
+            <header><h1 class="display-4">{{ .Title }}</h1></header>
+            {{ .Content }}
+        </main>
+    </div>
+</div>
 {{ end }}

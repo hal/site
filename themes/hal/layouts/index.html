@@ -1,24 +1,21 @@
-{{ define "header" }}
-<div class="homepage-banner d-flex flex-column align-items-center bg-dark p-5">
-    <div>
-        <img class="img-fluid" src="{{ "/img/hal.svg" | relURL }}" alt="">
-    </div>
+{{ define "main" }}
+<div class="hal-homepage-banner d-flex flex-column align-items-center bg-dark p-5">
+    <div><img class="img-fluid" src="{{ "/img/hal.svg" | relURL }}" alt=""></div>
     <h1 class="display-4 mt-5 text-center">{{ .Params.description }}</h1>
     <p class="lead text-center">{{ .Content | markdownify }}</p>
-    <a href="/documentation/get-started/" role="button" class="btn btn-outline-light btn-lg mt-5">Get Started</a>
+    <a href="{{ relref . "documentation/get-started.md" }}" role="button" class="btn btn-outline-light btn-lg mt-5">
+        Get Started
+    </a>
 </div>
-{{ end }}
-
-{{ define "main" }}
 <div class="d-lg-flex justify-content-lg-center flex-lg-wrap mb-5">
     {{ range .Params.features }}
-    <div class="homepage-feature d-flex flex-2-per-row">
-        <div><img class="teaser-icon mr-3" src="{{ .icon }}"></div>
-        <div>
-            <h3>{{ .heading }}</h3>
-            <p>{{ .teaser }}</p>
+        <div class="hal-homepage-feature d-flex hal-flex-2-per-row">
+            <div><img class="hal-teaser-icon mr-3" src="{{ .icon }}"></div>
+            <div>
+                <h3>{{ .heading }}</h3>
+                <p>{{ .teaser }}</p>
+            </div>
         </div>
-    </div>
     {{ end }}
 </div>
 {{ end }}

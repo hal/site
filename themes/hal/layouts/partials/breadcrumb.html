@@ -1,9 +1,10 @@
-{{ $depth := len (split .RelPermalink "/") }}
-{{ printf `<!-- depth: %#v -->` $depth | safeHTML }}
-{{ if gt $depth 3 }}
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb px-5 mb-0 bg-white small float-right">
-            {{ partial "breadcrumb-item.html" (dict "currentPage" .Page "id" .UniqueID) }}
-        </ol>
-    </nav>
+{{ if .currentPage.Parent }}
+    {{ partial "breadcrumb.html" (dict "currentPage" .currentPage.Parent) }}
+{{ end }}
+{{ if not (.currentPage.IsHome)}}
+    {{ if eq .id .currentPage.UniqueID }}
+        <li class="breadcrumb-item active" aria-current="page">{{ .currentPage.Title }}</li>
+    {{ else }}
+        <li class="breadcrumb-item"><a href="{{ .currentPage.RelPermalink }}">{{ .currentPage.Title }}</a></li>
+    {{ end }}
 {{ end }}

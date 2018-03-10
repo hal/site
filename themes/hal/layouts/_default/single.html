@@ -4,7 +4,7 @@
 {{ $toc := and (gt .WordCount 400 ) (ne .Params.toc "false") }}
 <div class="container-fluid">
     <div class="row flex-xl-nowrap">
-        <main class="col-12 col-md-12 {{ if $toc }}col-lg-9{{ end }} py-md-3 px-md-5 hal-content" role="main">
+        <main class="{{ $.Site.Params.mainClass }}{{ if $toc }} col-lg-9{{ end }} hal-content" role="main">
             {{ if and ($breadcrumb) (not ($toc))}}
                 <nav class="hal-breadcrumb-only float-right" aria-label="breadcrumb">
                     <ol class="breadcrumb bg-white pr-0 pb-0">

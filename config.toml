@@ -104,6 +104,9 @@ theme = "hal"
   weight = 320
   url = "https://github.com/hal/hal.next/fork"
 
+[params]
+  mainClass = "col-12 col-md-12 py-md-3 px-md-5"
+
 [taxonomies]
   tag = "tags"
   category = "categories"

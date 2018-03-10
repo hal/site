@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="container-fluid">
     <div class="row">
-        <main role="main">
+        <main class="{{ $.Site.Params.mainClass }} hal-list" role="main">
             <header><h1 class="display-4">{{ .Title }}</h1></header>
             {{ .Content }}
             <table class="table table-striped">

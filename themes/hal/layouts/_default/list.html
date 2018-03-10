@@ -1,13 +1,13 @@
 {{ define "main" }}
 <div class="container-fluid">
     <div class="row">
-        <main role="main">
+        <main class="{{ $.Site.Params.mainClass }} hal-list" role="main">
             <header><h1 class="display-4">{{ .Title }}</h1></header>
             {{ .Content }}
             {{ with .Pages }}
                 <div class="d-lg-flex flex-lg-wrap">
                     {{ range . }}
-                        <div class="d-flex hal-flex-3-per-row pt-5 pr-5">
+                        <div class="d-flex hal-flex-3-per-row pt-4 pr-md-5">
                             {{ with .Params.icon }}
                                 <div><img class="hal-teaser-icon mr-3" src="{{ . }}"></div>
                             {{ end }}

@@ -31,6 +31,11 @@ theme = "hal"
   identifier = "contribute"
   weight = 50
   url = "/contribute/"
+[[menu.global]]
+  name = "Releases"
+  identifier = "releases"
+  weight = 60
+  url = "/releases/"
 
 [[menu.external]]
   name = "Source Code"

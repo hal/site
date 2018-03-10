@@ -16,7 +16,7 @@
                 {{ range .Pages.ByTitle.Reverse }}
                 <tr>
                     <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
-                    <td>{{ .Params.target }}</td>
+                    <td>{{ delimit .Params.target ", " }}</td>
                     <td><a href="{{ safeURL .Params.tag }}">{{ .Params.tag }}</a></td>
                 </tr>
                 {{ end }}

@@ -6,7 +6,7 @@ toc: true
 ---
 We've rewritten the HAL management console from scratch. We still use a similar [technical stack]({{< relref "development/architecture.md" >}}), but we removed a lot of old and deprecated code, refactored the main business logic and rewrote pretty much all of the UI related code. We moved from [GWT widgets](http://www.gwtproject.org/doc/latest/RefWidgetGallery.html) to [Elemento](https://github.com/hal/elemento) and prepared the codebase for the upcoming GWT 3.0 release. We also fully adopt [PatternFly](https://www.patternfly.org/) now.  
 
-Finally we took the opportunity to enhance the existing features and added support for many new subsystems and attributes. The following sections give a quick overview about the new and enhanced features. For more details see the [release notes]({{< relref "release-notes/3.0.0.Final.md" >}}). 
+Finally we took the opportunity to enhance the existing features and added support for many new subsystems and attributes. The following sections give a quick overview about the new and enhanced features. For more details see the [release notes]({{< relref "releases/3.0.0.Final.md" >}}). 
 
 # General
 

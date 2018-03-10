@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ $depth := len (split .RelPermalink "/") }}
 {{ $breadcrumb := gt $depth 3 }}
-{{ $toc := and (gt .WordCount 400 ) (ne .Params.toc "false") }}
+{{ $toc := or (gt .WordCount 400 ) (ne .Params.toc "false") }}
 <div class="container-fluid">
     <div class="row flex-xl-nowrap">
         <main class="{{ $.Site.Params.mainClass }}{{ if $toc }} col-lg-9{{ end }} hal-content" role="main">

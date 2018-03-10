@@ -4,160 +4,18 @@ date: 2018-03-08T16:28:57+01:00
 draft: true
 toc: true
 ---
-We've rewritten the HAL management console from scratch. We still use a similar [technical stack]({{< relref "development/architecture.md" >}}), but we removed a lot of old and deprecated code, refactored the main business logic and rewrote pretty much all of the UI related code. We moved from [GWT widgets](http://www.gwtproject.org/doc/latest/RefWidgetGallery.html) to [Elemento](https://github.com/hal/elemento) and prepared the codebase for the upcoming GWT 3.0 release. We also fully adopt [PatternFly](https://www.patternfly.org/) now.  
+Starting with version 3.x we've rewritten the console from scratch. We still use a similar [technical stack]({{< relref "development/architecture.md" >}}), but we removed a lot of old and deprecated code, refactored the main business logic and rewrote pretty much all of the UI related code. We moved from [GWT widgets](http://www.gwtproject.org/doc/latest/RefWidgetGallery.html) to [Elemento](https://github.com/hal/elemento) and prepared the codebase for the upcoming GWT 3.0 release. We also fully adopt [PatternFly](https://www.patternfly.org/) now.  
 
-Finally we took the opportunity to enhance the existing features and added support for many new subsystems and attributes. The following sections give a quick overview about the new and enhanced features. For more details see the [release notes]({{< relref "releases/3.0.0.Final.md" >}}). 
+Finally we took the opportunity to enhance the existing features and added support for many new subsystems and attributes. The following sections shows some highlights of the latest version. For all details see the [3.0.0.Final release notes]({{< relref "releases/3.0.0.Final.md" >}}). 
 
-# General
+# Finder
 
-- Place management for finder and applications. Each finder selection and each application has its own distinct URL
-  - Cross-links between different parts of HAL (configuration ⟷ runtime ⟷ deployment)
-  - Applications / finder selections can be bookmarked
-- Enhanced model browser (visualize deprecated attributes)
-- Macro recording
-- PatternFly compliance
-- Enhanced form items
-  - lists
-  - properties
-  - booleans (w/ expression support)
-  - combo boxes with auto complete support
-- JavaScript API
-- Support for (dynamic) extensions written in JavaScript
-- Second level cache for metadata (based on IndexDB and web workers)
-
-## Finder
-
-- Navigation using cursor keys. Open an application by pressing ↵ (enter) and go back with ⌫ (backspace)
-- Items are ordered alphabetically by default
-- Pin frequently used items to stay at the top
-- Filter items by name and by properties like 'enabled' (for data sources) or 'stopped' (for servers)
-- Rich preview panes with action links for the most common tasks
-
-## Applications
-
-- Breadcrumb navigation
-- Open in external window
-- Expert mode for most of the applications
-- New vertical navigation
+# Applications
 
 # Deployments
 
-- Drag and drop deployments
-- Content browser with preview for text files, images and application link
-- Create exploded deployments
-- CRUD support for exploded deployments:
-  - Add empty files
-  - Upload content
-  - Modify content
-  - Remove content
-- Download deployments / deployment content
-
-# Configuration
-
-- Client mappings for socket binding (inbound)
-
-## New Subsystems
-
-- Elytron
-- Logging Profiles
-- Request Controller
-
-## Enhanced Subsystems
-
-- EJB
-  - MDB Delivery
-- Infinispan
-  - Cache container
-    - Thread pool singletons
-  - Cache
-    - All component singletons
-      - Backup
-    - All store singletons
-      - Write through and write behind
-      - Tables for JDBC stores
-- JCA
-  - Tracer
-  - Distributed workmanager
-- JGroups
-  - Subsystem attributes
-  - Channel configuration
-- JMX
-  - Audit log
-- Messaging
-  - Subsystem attributes
-  - HTTP acceptors & connectors
-  - HA policy
-- Resource Adapters
-  - Work manager security: group & user mappings
-- Security
-  - Configure security subsystem
-    - Core attributes
-    - Elytron key manager / store
-    - Elytron realm
-    - Elytron trust manager / store
-    - Vault
-  - Security domain
-    - Core attributes
-- Undertow
-  - Application Security Domains
-  - Buffer caches
-  - Servlet container / crawler
-  - Hosts
-    - Access log
-    - Single sign on
-    - Locations & location filter refs
+# Topology
 
 # Runtime
 
-- Topology
-- Reload / restart hosts
-- Show disconnected hosts
-- Better visualization for lifecycle operation on hosts, server groups and servers
-- Specify custom server URLs
-- Configuration changes
-- Cancel management operations
-
-## New Subsystems
-
-- EJB
-  - Thread pool from ejb3 subsystem 
-  - Preview with counters, timers and pool data of all deployed EJBs
-  - Presenter / view tuple with all details
-- IO: Worker statistics and server connections
-- JAX-RS: Overview of JAX-RS endpoints with clickable URLs
-
-## Enhanced Subsystems
-
-- Batch
-  - Utilization chart for the default thread pool
-  - Donut chart for the number of started, completed, stopped, failed and abandoned job executions
-  - Start jobs
-- Data Sources: Includes data sources from (sub)deployments
-- JNDI: Search JNDI tree for keys, values
-- Messaging
-  - Include queues and topics from deployments
-  - Rich preview
-  - List messages
-  - Actions to change priority, expire messages, move messages, remove messages, send to dead letter queue
-- Transaction
-  - Charts for runtime metrics
-- Web
-  - Charts for runtime metrics
-  - Application security domain
-  - Shows statistics sessions per application
-  - Modcluster runtime metrics
-  - Requests and processing time metrics for undertow listeners
-- Web Services
-  - Charts for runtime metrics
-
-# Patching
-
-- Clear patch history
-
-# Access Control
-
-- Switch security providers using the console
-
-# Management
-
-- Extensions
+# Monitor

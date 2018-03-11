@@ -38,15 +38,21 @@ theme = "hal"
   url = "/releases/"
 
 [[menu.external]]
+  name = "Youtube"
+  identifier = "youtube"
+  weight = 10
+  post = "fab fa-youtube"
+  url = "https://www.youtube.com/channel/UCcXaCVPvmzgLz74FnzlWoSg/"
+[[menu.external]]
   name = "Source Code"
   identifier = "code"
-  weight = 10
+  weight = 20
   post = "fab fa-github"
   url = "https://github.com/hal/hal.next"
 [[menu.external]]
   name = "Gitter"
   identifier = "gitter"
-  weight = 20
+  weight = 30
   post = "fab fa-gitter"
   url = "https://gitter.im/hal/hal.next"
 [[menu.external]]

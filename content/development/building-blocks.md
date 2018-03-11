@@ -1,7 +1,6 @@
 ---
 title: "Building Blocks"
 date: 2018-03-08T16:30:11+01:00
-draft: true
 icon: "/img/puzzle.png"
 weight: 30
 ---

@@ -1,7 +1,6 @@
 ---
 title: "Build Run"
 date: 2018-03-08T16:29:52+01:00
-draft: true
 icon: "/img/tools.png"
 weight: 10
 ---

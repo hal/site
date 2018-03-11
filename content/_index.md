@@ -1,7 +1,6 @@
 ---
 title: "Home"
 description: "HAL Management Console"
-draft: false
 features:
   - heading: Modern Architecture
     icon: /img/window.png

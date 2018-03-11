@@ -1,7 +1,6 @@
 ---
 title: "End User"
 date: 2018-03-08T16:29:20+01:00
-draft: true
 icon: "/img/book.png"
 weight: 20
 ---

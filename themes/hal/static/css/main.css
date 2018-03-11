@@ -41,6 +41,12 @@ a, a:hover {
     text-align: justify;
 }
 
+.hal-image-caption {
+    color: #6c757d;
+    font-size: 90%;
+    margin-bottom: 0;
+}
+
 .hal-flex-2-per-row {
     flex: 1 1 50%;
 }

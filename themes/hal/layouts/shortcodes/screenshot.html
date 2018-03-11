@@ -1,0 +1,2 @@
+{{ with .Get "caption" }}<p class="hal-image-caption">{{.}}</p>{{ end }}
+<img class="img-fluid mb-3" src="{{ .Get "src" | relURL }}" alt="">

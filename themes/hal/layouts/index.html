@@ -3,7 +3,7 @@
     <div><img class="img-fluid" src="{{ "/img/hal.svg" | relURL }}" alt=""></div>
     <h1 class="display-4 mt-5 text-center">{{ .Params.description }}</h1>
     <p class="lead text-center">{{ .Content | markdownify }}</p>
-    <a href="{{ relref . "documentation/get-started.md" }}" role="button" class="btn btn-outline-light btn-lg mt-5">
+    <a href="/documentation/get-started/" role="button" class="btn btn-outline-light btn-lg mt-5">
         Get Started
     </a>
 </div>

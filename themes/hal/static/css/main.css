@@ -6,6 +6,10 @@ a, a:hover {
     color: #900;
 }
 
+pre, code {
+    font-family: 'Overpass Mono', monospace;
+}
+
 .hal-aside {
     height: calc(100vh - 3rem);
     font-size: .875rem;
@@ -69,7 +73,7 @@ a, a:hover {
 }
 
 .hal-homepage-feature {
-    padding: 4rem 6rem 0 6rem;
+    padding: 1rem 2rem 0 1rem;
 }
 
 .hal-smaller {
@@ -86,8 +90,18 @@ a, a:hover {
     padding-left: 1rem;
 }
 
+@media (min-width: 576px) {
+    .hal-homepage-feature {
+        padding: 2rem 4rem 0 4rem;
+    }
+}
+
 @media (min-width: 992px) {
     .hal-homepage-feature {
+        padding: 4rem 6rem 0 6rem;
+    }
+
+    .w-lg-50 {
         width: 50%;
     }
 }

@@ -35,7 +35,7 @@ Many new features have been added to the deployment section:
  
 {{< cocoen before="/img/whatsnew/before/deployment.png" after="/img/whatsnew/after/deployment.png" reverse="true" caption="Deployments" >}} 
 {{< cocoen before="/img/whatsnew/before/deployment-model.png" after="/img/whatsnew/after/deployment-model.png" reverse="true" caption="Deployment Model" >}} 
-{{< screenshot src="/img/whatsnew/after/deployment-content.png" caption="The new content browser" >}}
+{{< screenshot src="/img/whatsnew/after/deployment-content.png" caption="Content Browser" >}}
 
 # Topology
 

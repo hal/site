@@ -76,14 +76,21 @@ More complex subsystems like Infinispan or messaging add additional columns to t
 # Runtime
 
 {{< imgflow src="/img/documentation/runtime.png" float="left" >}}
-The runtime section...Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+The runtime section is used to control the lifecycle of hosts, server groups and servers. In addition you can monitor runtime data and statistics provided by the various subsystems. You can also enable and view configuration changes. Finally you can view the JMX beans and browser the server log files.  
+
 {{</ imgflow >}}
 
 # Patching
 
-The patching section...Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+The patching section is used to upload and manage patches. The method of applying a patch to WildFly depends on your installation method. If you installed WildFly using the ZIP or installer methods, you must use the ZIP-based patch management system. If you used RPMs to install WildFly on Red Hat Enterprise Linux, you must use RPM patches. 
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+Before applying or rolling back a patch, you should back up your WildFly server, including all deployments and configuration files.
+                                                           
+Cumulative patches for a ZIP or Installer installation of WildFly are available to download from the Red Hat Customer Portal.
+                                                           
+For multiple WildFly hosts in a managed domain environment, individual hosts can be patched from your WildFly domain controller.
+                                                           
+In addition to applying a patch, you can also roll back the application of a patch.
 
 # Access Control
 

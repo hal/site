@@ -68,9 +68,9 @@ The configuration section provides access to all important resources used to con
 - paths
 - system properties
 
-The majority of the configuration section are the subsystems. The console lists all subsystems in an alphabetical order. Depending on the profile in domain mode and the used configuration file in standalone mode, this list includes different entries. 
+The majority of the configuration section are the subsystems. By default the console lists all subsystems in alphabetical order. Depending on the profile in domain mode and the used configuration file in standalone mode, this list includes different entries. 
 
-More complex subsystems like Infinispan or messaging come with different columns in the finder. Other subsystems are managed by a single application. 
+More complex subsystems like Infinispan or messaging add additional columns to the finder. Other simpler subsystems are managed by a single application. 
 {{</ imgflow >}}
 
 # Runtime

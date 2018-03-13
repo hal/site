@@ -7,14 +7,15 @@
             {{ with .Pages }}
                 <div class="d-lg-flex flex-lg-wrap">
                     {{ range . }}
+                        {{- $link := .RelPermalink -}}
                         <div class="d-flex hal-flex-3-per-row pt-4 pr-md-5">
                             {{ with .Params.icon }}
-                                <div><img class="hal-teaser-icon mr-3" src="{{ . }}"></div>
+                            <div><a href="{{ $link }}"><img class="hal-teaser-icon mr-3" src="{{ . }}"></a></div>
                             {{ end }}
                             <div>
-                                <h5 class="card-title">{{ .Title }}</h5>
-                                <p class="card-text">{{ .Summary }}</p>
-                                <a href="{{ .RelPermalink }}" class="card-link">Read More &raquo;</a>
+                                <h5 class="card-title"><a href="{{ $link }}" class="text-dark">{{ .Title }}</a></h5>
+                                <div class="card-text">{{ .Summary }}</div>
+                                <a href="{{ $link }}" class="card-link">Read More &raquo;</a>
                             </div>
                         </div>
                     {{ end }}

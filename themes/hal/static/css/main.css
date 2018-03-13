@@ -76,6 +76,10 @@ pre, code {
     padding: 1rem 2rem 0 1rem;
 }
 
+.hal-imgflow-content ul {
+    overflow: hidden;
+}
+
 .hal-smaller {
     font-size: 0.66rem;
 }

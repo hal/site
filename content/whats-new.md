@@ -15,7 +15,7 @@ The finder has been greatly improved. You can now use the cursor keys for naviga
 
 # Applications
 
-Applications provide a new breadcrumb at the top to quickly switch between items of the same kind. Furthermore more complex applications can include a vertical navigation. Finally most applications can be easily opened in an external window and provide an expert mode which uses the generic model browser.  
+Applications provide a new breadcrumb at the top to quickly switch between items of the same kind. More complex applications can include a vertical navigation. Finally most applications can be easily opened in an external window and provide an expert mode which uses the generic model browser.  
 
 {{< cocoen before="/img/whatsnew/before/application.png" after="/img/whatsnew/after/application.png" reverse="true" >}} 
 

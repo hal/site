@@ -20,5 +20,10 @@ git commit -m "$msg"
 # Push source and build repos.
 git push origin master
 
-# Come Back up to the Project Root
+# Come Back up to the root
 cd ..
+
+# Push the main repo
+if [ $1 = "--push" ]; then
+    git commit -am "Pushed to https://hal.github.io" && git push origin master
+fi

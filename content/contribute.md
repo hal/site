@@ -3,7 +3,7 @@ title: "Contribute"
 date: 2018-03-08T16:30:37+01:00
 toc: true
 ---
-The HAL management console is 100% open source. It's developed for and by its community of users. We are grateful for all contributions, whether it be a new feature, a bug fix, wiki entires, helping other members, or even just filing a bug report. The relationship is symbiotic, every contribution you make encourages others to in turn contribute in ways that will likely benefit you. 
+First off, thank you for considering contributing to HAL. It's people like you that make HAL such a great tool. HAL is an open source project and we love to receive contributions from our community — you! There are many ways to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into HAL itself.
 
 Getting involved is easier than you think. All resources that you need are available on the internet.
 
@@ -31,4 +31,4 @@ All HAL issues are tracked in the JBoss JIRA. Feel free to raise an issue, wheth
 
 # Submit a Pull Request
 
-Once you have successfully build and run the console, ...
+We love pull requests! Submitting a pull request involves forking the GutHub project and creating branches. Please follow the steps in the [contribution guide](https://github.com/hal/hal.next/blob/develop/CONTRIBUTING.md). 

@@ -1,14 +1,12 @@
 ---
 title: "Manage Deployments"
 date: 2018-03-14T10:57:19+01:00
-description: "How to upload and manage deployments."
+description: "Shows the various ways how to add deployments. Describes how to manage existing deployments and how you can use the console for rapid prototyping."
 icon: "/img/bundle.png"
 toc: true
 weight: 20
 ---
 An hoc usque quaque, aliter in vita? Quid sequatur, quid repugnet, vident. Nam Pyrrho, Aristo, Erillus iam diu abiecti. Eaedem res maneant alio modo. Vitae autem degendae ratio maxime quidem illis placuit quieta. Scaevolam M. Nam aliquando posse recte fieri dicunt nulla expectata nec quaesita voluptate. Item de contrariis, a quibus ad genera formasque generum venerunt. Non laboro, inquit, de nomine.
-
-<!--more-->
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Istam voluptatem, inquit, Epicurus ignorat? Sed haec nihil sane ad rem; Utram tandem linguam nescio? Quaero igitur, quo modo hae tantae commendationes a natura profectae subito a sapientia relictae sint. Duo Reges: constructio interrete. Quae quidem vel cum periculo est quaerenda vobis.
 

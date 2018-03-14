@@ -1,13 +1,11 @@
 ---
 title: "Add a Data Source"
 date: 2018-03-14T10:57:25+01:00
-description: "How to add a data source."
+description: "Shows the different ways how to add a data source. Describes the advantages and disadvantages of each approach."
 icon: "/img/storage.png"
 weight: 10
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Istam voluptatem, inquit, Epicurus ignorat? Sed haec nihil sane ad rem; Utram tandem linguam nescio? Quaero igitur, quo modo hae tantae commendationes a natura profectae subito a sapientia relictae sint. Duo Reges: constructio interrete. Quae quidem vel cum periculo est quaerenda vobis.
-
-<!--more-->
 
 An hoc usque quaque, aliter in vita? Quid sequatur, quid repugnet, vident. Nam Pyrrho, Aristo, Erillus iam diu abiecti. Eaedem res maneant alio modo. Vitae autem degendae ratio maxime quidem illis placuit quieta. Scaevolam M. Nam aliquando posse recte fieri dicunt nulla expectata nec quaesita voluptate. Item de contrariis, a quibus ad genera formasque generum venerunt. Non laboro, inquit, de nomine.
 

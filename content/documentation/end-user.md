@@ -1,15 +1,13 @@
 ---
 title: "End User"
 date: 2018-03-08T16:29:20+01:00
-description: "Contains end user documentation and explains how to use the console."
+description: "Contains the end user documentation. Touches the main sections of the console, shows how to use them and explains the concepts behind each section."
 icon: "/img/book.png"
 toc: true
 weight: 20
 ---
 The HAL management console features a rich user interface to configure, analyse and monitor the complete WildFly management model. The console uses six main sections: homepage, deployments, configuration, runtime, patching and access control.
  
-<!--more-->
-
 This page gives a quick introduction to the main sections. If you want to learn more about the most common use cases, visit the [YouTube channel](https://www.youtube.com/channel/UCcXaCVPvmzgLz74FnzlWoSg/) and watch the screencasts.
 
 # Homepage

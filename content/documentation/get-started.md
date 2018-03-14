@@ -1,6 +1,7 @@
 ---
 title: "Get Started"
 date: 2018-03-08T16:28:42+01:00
+description: "Describes how to get started quickly."
 icon: "/img/rocket.png"
 toc: true
 weight: 10

@@ -1,6 +1,7 @@
 ---
 title: "Architecture"
 date: 2018-03-08T16:30:01+01:00
+description: "The HAL architecture"
 icon: "/img/building.png"
 weight: 20
 ---

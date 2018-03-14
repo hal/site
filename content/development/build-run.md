@@ -1,6 +1,7 @@
 ---
-title: "Build Run"
+title: "Build & Run"
 date: 2018-03-08T16:29:52+01:00
+description: "How to build & run the console."
 icon: "/img/tools.png"
 weight: 10
 ---

@@ -1,6 +1,7 @@
 ---
 title: "End User"
 date: 2018-03-08T16:29:20+01:00
+description: "Contains end user documentation and explains how to use the console."
 icon: "/img/book.png"
 toc: true
 weight: 20

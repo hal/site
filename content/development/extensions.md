@@ -1,6 +1,7 @@
 ---
 title: "Extensions"
 date: 2018-03-08T16:30:20+01:00
+description: "The HAL extension mechanism and how to write custom extensions using the JavaScript API."
 icon: "/img/plug.png"
 weight: 40
 ---

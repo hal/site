@@ -1,16 +1,16 @@
 <footer class="hal-footer footer-dark bg-dark p-5">
     <div class="container">
         <div class="row">
-            {{ range $index, $element := .Site.Menus.footer }}
+            {{- range $index, $element := .Site.Menus.footer -}}
             <div class="col-md-2 {{ if eq $index 0 }}offset-md-1{{ end }}">
                 <h6>{{ .Name }}</h6>
                 <ul class="list-unstyled">
-                    {{ range .Children }}
-                    <li><a class="small" href="{{ .URL }}">{{ .Name }}</a></li>
-                    {{ end }}
+                    {{- range .Children -}}
+                        <li><a class="small" href="{{ .URL }}">{{ .Name }}</a></li>
+                    {{- end -}}
                 </ul>
             </div>
-            {{ end }}
+            {{- end -}}
             <div class="col-md-3 offset-md-1">
                 <h6>Apache 2 License</h6>
                 <p class="small">All dependencies of this project are available under the Apache 2 or a compatible

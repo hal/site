@@ -3,9 +3,14 @@
     <div><img class="img-fluid" src="{{ "/img/hal.svg" | relURL }}" alt=""></div>
     <h1 class="display-4 mt-5 text-center">{{ .Params.description }}</h1>
     <p class="lead text-center">{{ .Content | markdownify }}</p>
+    <span>
+    <a href="/whats-new/" role="button" class="btn btn-outline-light btn-lg mt-5 mr-lg-5 mr-2">
+        What's New
+    </a>
     <a href="/documentation/get-started/" role="button" class="btn btn-outline-light btn-lg mt-5">
         Get Started
     </a>
+    </span>
 </div>
 <div class="d-lg-flex justify-content-lg-center flex-lg-wrap mb-5">
     {{ range .Params.features }}

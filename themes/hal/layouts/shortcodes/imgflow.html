@@ -1,6 +1,7 @@
 {{- $float := .Get "float" -}}
+{{- $src := .Get "src" -}}
 <div class="clearfix">
-    <img class="img-fluid float-lg-{{ $float }} m{{ if eq $float "left" }}r{{ else }}l{{ end }}-lg-3 mb-2 w-lg-50 border border-secondary {{ with .Get "class" }}{{.}}{{ end }}" src="{{ .Get "src" | relURL }}" alt="">
+    <a href="{{ $src | relURL }}" data-lightbox="{{ $src | base64Encode }}"><img class="img-fluid float-lg-{{ $float }} m{{ if eq $float "left" }}r{{ else }}l{{ end }}-lg-3 mb-2 w-lg-50 border border-secondary {{ with .Get "class" }}{{.}}{{ end }}" src="{{ $src | relURL }}" alt=""></a>
     <div class="hal-imgflow-content">
         <p>{{ .Inner | markdownify}}</p>
     </div>

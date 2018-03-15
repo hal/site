@@ -1,2 +1,3 @@
+{{- $src := .Get "src" -}}
 {{ with .Get "caption" }}<p class="hal-image-caption">{{.}}</p>{{ end }}
-<img class="img-fluid mb-2 {{ with .Get "class" }}{{.}}{{ end }}" src="{{ .Get "src" | relURL }}" {{ with .Get "width" }}width="{{.}}"{{ end }} alt="">
+<img class="img-fluid mb-2 {{ with .Get "class" }}{{.}}{{ end }}" src="{{ $src | relURL }}" {{ with .Get "width" }}width="{{.}}"{{ end }} alt="">

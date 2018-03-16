@@ -20,10 +20,10 @@ There are different ways to use the independent mode. All of them require to con
 
 **Standalone Mode**
 
-```bash
+{{< highlight bash >}}
 /core-service=management/management-interface=http-interface:list-add(name=allowed-origins,value=<url>)
 reload
-```
+{{</ highlight >}}
 
 **Domain Mode**
 

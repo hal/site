@@ -12,7 +12,17 @@ This page explains how to build, run & debug the console.
 
 If not already done, clone the code from https://github.com/hal/hal.next/ or [fork](https://github.com/hal/hal.next/fork) the repository into your own personal GitHub account. 
 
-HAL uses Maven for its build. 
+HAL uses Maven for its build. Execute the following command to build the complete codebase including the GWT application:
+
+```bash
+mvn clean install
+``` 
+
+Note that this might take some time. If you just want to make sure that there are no compilation or test failures use
+
+```bash
+mvn clean install -Dgwt.skipCompilation
+``` 
 
 # Run
 

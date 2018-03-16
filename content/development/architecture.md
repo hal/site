@@ -1,11 +1,20 @@
 ---
 title: "Architecture"
 date: 2018-03-08T16:30:01+01:00
-description: "Describes the basic architecture of the console. Lists the used frameworks and libraries and gives some background information about the choices made."
+description: "Describes the basic architecture of the console. Lists the used frameworks and libraries and gives background information about the choices made."
 icon: "/img/building.png"
+toc: true
 weight: 20
 ---
-The HAL management console is a client side RIA which uses the following technical stack:
+HAL is a client side RIA without server side dependencies. It is a GWT application - which means it's written almost completely in Java. GWT is used to transpile the Java code into a bunch of JavaScript, HTML and CSS files. HAL uses some external JavaScript libraries as well. These dependencies are managed using [bower](https://bower.io/) which is in turn integrated into the Maven build using the [`maven-frontend-plugin`](https://github.com/eirslett/frontend-maven-plugin). Take a look at the [`bower.json`](https://github.com/hal/hal.next/blob/develop/app/bower.json) too see all JavaScript dependencies.
+
+We use the [model view presenter](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) pattern and [GWTP](https://dev.arcbees.com/gwtp/) for its implementation. The main business logic resides in presenters like the [`DataSourcePresenter`](https://github.com/hal/hal.next/blob/develop/app/src/main/java/org/jboss/hal/client/configuration/subsystem/datasource/DataSourcePresenter.java). Presenters are responsible for holding state and talk to the management endpoint. The views are used to hold all UI related code. They leverage the [PatternFly](https://www.patternfly.org/) components and are implemented using [Elemento](https://github.com/hal/elemento). Views register event handlers for user interaction and interact with the presenters. The model in this scenario are usually instances of [`ModelNode`](https://github.com/hal/hal.next/blob/develop/dmr/src/main/java/org/jboss/hal/dmr/ModelNode.java) which are the result of DMR operations. They're passed around between the presenters and views.
+
+For more details about the different parts of the console and how they work together see [building blocks]({{< relref "development/building-blocks.md" >}}).
+
+# Technical Stack
+
+In a nutshell the console uses the following technical stack:
 
 - Java 8
 - [GWT](http://www.gwtproject.org/) 
@@ -15,7 +24,33 @@ The HAL management console is a client side RIA which uses the following technic
 - [PouchDB](https://pouchdb.com/)
 - [PatternFly](https://www.patternfly.org/)
 
+# Maven Modules
 
-Architecture - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
- 
-At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+HAL consists of many different maven modules, each of which serves a specific purpose. Here's the list of modules and a quick description:
+
+| Module | Description |
+|--------|-------------|
+| app | Main application containing the GWT [entry point](http://www.gwtproject.org/doc/latest/DevGuideCodingBasicsClient.html#creating) |
+| ballroom | Core UI classes like `Form`, `Dialog` or `Table` |
+| bom | Declaration of all HAL modules |
+| config | Configuration classes for the environment, operation mode, current user and its roles |
+| core | Core HAL API |
+| db | Thin wrapper around [PouchDB](https://pouchdb.com/) |
+| dmr | DMR related code to execute operation, read results and work with model nodes |
+| docker | Docker image to run the console in [independent mode]({{< relref "documentation/get-started.md#independent-mode" >}}) |
+| flow | Execute asynchronous tasks in order |
+| fraction | WildFly Swarm fraction for HAL |
+| js | JavaScript related helper classes |
+| meta | Metadata related classes to encapsulate the different parts of the resource descriptions |
+| parent-with-dependencies | Parent POM for all other modules except `bom` |
+| parent-with-gwt | Parent POM for all GWT related modules |
+| processors | Annotation processors for code generation |
+| resources | I18n resources, images and HTML snippets |
+| spi | SPI related classes and annotations |
+| standalone | Local [Undertow](http://undertow.io/) server to start the console in [independent mode]({{< relref "documentation/get-started.md#independent-mode" >}}) |
+| testsuite | Maven setup to assemble classes from different modules and make them available as one dependency for the test suite |
+| themes | Different HAL themes |
+|     eap | Theme used for [JBoss EAP](https://developers.redhat.com/products/eap/overview/) |
+|     hal | Theme used for the [independent mode]({{< relref "documentation/get-started.md#independent-mode" >}}) |
+|     wildfly | Theme used for [WildFly](http://wildfly.org/) |
+| yarn | NPM / Yarn setup to start the console in [independent mode]({{< relref "documentation/get-started.md#independent-mode" >}}) |

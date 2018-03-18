@@ -9,7 +9,7 @@ Finally we took the opportunity to enhance the existing features and added suppo
 
 # Finder
 
-The finder has been greatly improved. You can now use the cursor keys for navigation inside and across columns. To open an application press ↵ (enter) to go back press ⌫ (backspace). Items in one column are now ordered alphabetically by default. You can pin frequently used items to stay at the top. Most columns offer a filter which can be used to quickly find the items you're looking for. Finally the previews have been enriched and provide detailed documentation or the main attributes of the selected resource. 
+The finder has been greatly improved. You can now use the cursor keys for navigation inside and across columns. To open an application press ↵ (enter) to go back press ⌫ (backspace). Items in one column are now ordered alphabetically by default. You can pin frequently used items to stay at the top. Most columns offer a filter which can be used to quickly find the items you're looking for. Finally the previews have been enriched and provide detailed documentation or the main attributes of the selected resource. If appropriate the previews contain action links for the most common tasks.
 
 {{< cocoen before="img/whatsnew/before/finder.png" after="img/whatsnew/after/finder.png" reverse="true" >}} 
 

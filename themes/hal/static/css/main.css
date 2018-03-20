@@ -10,6 +10,10 @@ pre, code {
     font-family: 'Overpass Mono', monospace;
 }
 
+.clickable {
+    cursor: pointer;
+}
+
 .hal-aside {
     height: calc(100vh - 3rem);
     font-size: .875rem;
@@ -29,7 +33,7 @@ pre, code {
     padding-left: 1rem;
 }
 
-.hal-aside, .hal-breadcrumb-only {
+.hal-aside, .hal-breadcrumb-dropdown, .hal-breadcrumb-only {
     font-size: .875rem;
 }
 
@@ -39,6 +43,10 @@ pre, code {
 
 .hal-breadcrumb .breadcrumb-item.active, .hal-breadcrumb-only .breadcrumb-item.active {
     color: #999;
+}
+
+.hal-breadcrumb-dropdown {
+
 }
 
 .hal-callout {
@@ -95,6 +103,21 @@ pre, code {
 
 .hal-imgflow-content ul {
     overflow: hidden;
+}
+
+.hal-nav-prev, .hal-nav-next {
+}
+
+.hal-nav-prev {
+}
+
+.hal-nav-next {
+}
+
+.hal-nav-link {
+}
+
+.hal-nav-link:hover {
 }
 
 .hal-smaller {

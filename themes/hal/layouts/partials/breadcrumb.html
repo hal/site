@@ -1,10 +1,27 @@
-{{ if .currentPage.Parent }}
+{{- if .currentPage.Parent -}}
     {{ partial "breadcrumb.html" (dict "currentPage" .currentPage.Parent) }}
-{{ end }}
-{{ if not (.currentPage.IsHome)}}
-    {{ if eq .id .currentPage.UniqueID }}
-        <li class="breadcrumb-item active" aria-current="page">{{ .currentPage.Title }}</li>
-    {{ else }}
+{{- end -}}
+{{- if not (.currentPage.IsHome) -}}
+    {{- if eq .id .currentPage.UniqueID -}}
+        <li class="breadcrumb-item active" aria-current="page">
+            {{- if .currentPage.Parent -}}
+                <span class="dropdown">
+                    <a class="dropdown-toggle clickable" id="{{ .currentPage.UniqueID }}" data-toggle="dropdown">
+                        {{ .currentPage.Title }} <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right hal-breadcrumb-dropdown" role="menu" aria-labelledby="{{ .currentPage.UniqueID }}">
+                        {{ range .currentPage.Parent.Pages.ByWeight }}
+                            {{- if not (eq $.id .UniqueID) -}}
+                                <a class="dropdown-item" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                            {{- end -}}
+                        {{ end }}
+                    </div>
+                </span>
+            {{- else -}}
+                <span>{{ .currentPage.Title }}</span>
+            {{- end -}}
+        </li>
+    {{- else -}}
         <li class="breadcrumb-item"><a href="{{ .currentPage.RelPermalink }}">{{ .currentPage.Title }}</a></li>
-    {{ end }}
-{{ end }}
+    {{- end -}}
+{{- end -}}

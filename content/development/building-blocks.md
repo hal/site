@@ -6,11 +6,11 @@ icon: "/img/puzzle.png"
 toc: true
 weight: 30
 ---
-This section describes the building blocks and central concepts in HAL. The chapters follow a logical order starting from the fundamental concepts to the core and application level classes. 
+This section describes the main building blocks and central concepts in HAL. The chapters follow a logical order starting from the fundamental concepts to the higher-level modules. 
 
 # Dependency Injection
 
-HAL uses [GIN](https://code.google.com/archive/p/google-gin/) for dependency injection. Although it is no longer actively developed, GIN is a stable and mature DI framework. In the long run we want to replace GIN with [Dagger](https://google.github.io/dagger/). But this requires a new GWTP version which currently depends on GIN.
+HAL uses [GIN](https://code.google.com/archive/p/google-gin/) for dependency injection. Although no longer actively developed, GIN is a stable and mature DI framework. In the long run we want to replace GIN with [Dagger](https://google.github.io/dagger/). But this requires a new GWTP version which currently depends on GIN.
 
 Dependencies in GIN are declared in classes which extend `com.google.gwt.inject.client.AbstractGinModule`. Here's an example from the maven module `hal-config`: 
 
@@ -35,9 +35,25 @@ public class ConfigModule extends AbstractGinModule {
 }
 ```
 
-Most maven modules include their own GIN module. All GIN modules are annotated with `org.jboss.hal.spi.GinModule` and collected by the annotation processor `org.jboss.hal.processor.GinModuleProcessor`. This processor generates one composite GIN module which includes *all* other GIN modules. To see how it looks like open the class `org.jboss.hal.client.gin.CompositeModule` in your IDE.
+Most maven modules in HAL have their own GIN module. All GIN modules are annotated with `@GinModule` and are collected by an annotation processor. This processor generates one composite GIN module which includes *all* other GIN modules: 
 
-Dependency injection via `javax.inject.Inject` is available in all classes which are bound in GIN modules, presenters, views and finder columns. We recommend to use constructor injection. 
+```java
+/*
+ * WARNING! This class is generated. Do not modify.
+ */
+@Generated("org.jboss.hal.processor.GinModuleProcessor")
+public class CompositeModule extends AbstractGinModule {
+
+    @Override
+    protected void configure() {
+        install(new org.jboss.hal.resources.ResourcesModule());
+        install(new org.jboss.hal.config.ConfigModule());
+        ...
+    }
+}
+```
+
+To use dependency injection in your classes use the annotation `javax.inject.Inject`. All classes bound in GIN modules, presenters, views and finder columns are available for dependency injection. We recommend to use constructor injection. 
 
 # Logging
 
@@ -69,7 +85,7 @@ HAL includes many different resources which are all available using the class `o
 - `org.jboss.hal.resources.Ids`: IDs used in HTML elements and across multiple classes. The IDs defined here are reused by QA. 
 - `org.jboss.hal.resources.Names`: Common names and technical terms which are not meant to be translated.
 - `org.jboss.hal.resources.UIConstants`: UI related constants used in more than one place.
-- `org.jboss.hal.resources.CSS`: Common CSS classes from HAL, PatternFly & Bootstrap. The constants in this interface are not involved in any kind of code generation or GWT magic. They're just collected in this interface to have them in one place.
+- `org.jboss.hal.resources.CSS`: Common CSS classes from HAL, PatternFly & Bootstrap. The constants in this interface are not involved in any kind of code generation or GWT magic. They're collected in this interface in order to easily detect unused CSS classes. 
 - `org.jboss.hal.resources.Icons`: Collection of common icons.
 
 In addition it has methods which return the following classes: 
@@ -78,25 +94,152 @@ In addition it has methods which return the following classes:
 - `org.jboss.hal.resources.Messages`: I18n messages which can contain variable parts.
 - `org.jboss.hal.resources.Previews`: HTML snippets mainly used for the finder previews.
 - `org.jboss.hal.resources.Images`: Collection of images used in HAL.
-- `org.jboss.hal.resources.Theme`: Theme interface meant to be implemented by specific themes.
+- `org.jboss.hal.resources.Theme`: Theme used in HAL.
 
 # Config
 
-`org.jboss.hal.config.Environment`
+Information about the console and its environment is available using the interface `org.jboss.hal.config.Environment`. It provides the following data:
+
+- HAL version
+- HAL build (community or product, ie. WildFly or JBoss EAP)
+- Supported locales
+
+Some information is only available after the console has been fully loaded: 
+
+- Instance info containing the product name and version and the release name and version
+- Operation mode (standalone or domain)
+- Name of the domain controller
+- Management version
+- Access control provider (simple or rbac)
+- Standard and scoped roles
+
+Another important building block is the interface `org.jboss.hal.config.Endpoints`. It provides access to the endpoints used in HAL. Finally there's the class `org.jboss.hal.config.Settings` which provides access to the user settings. 
 
 # Flow
 
-RxGWT
+HAL runs in the browser. As such it uses a lot of (asynchronous) callbacks. We all know that nested callbacks are hard to read, maintain and quickly lead to an anti pattern better known as callback hell.
 
-`org.jboss.hal.flow.Flow`
+One solution for this problem is to use reactive programming. Instead of using callbacks as arguments, methods return reactive classes like `Single<T>` or `Observable<T>`. With [RxGWT](https://github.com/intendia-oss/rxgwt) there's an implementation of RxJava available for GWT. At the moment it's still based on RxJava 1.x, but support for 2.x is in the works. 
+
+HAL uses a reactive programming model in many classes to get rid of callbacks. You can find examples in `org.jboss.hal.dmr.dispatch.Dispatcher` and `org.jboss.hal.core.CrudOperations`. This really pays off when you want to execute several asynchronous operations in order. Therefore you can use the methods in `org.jboss.hal.flow.Flow` and the task interface `org.jboss.hal.flow.Task`.   
+
+Say you want to add a system property only if it's not already there. You could implement this using the following code snippet:
+
+```java
+Logger logger = ...;
+Dispatcher dispatcher = ...;
+ResourceAddress address = ResourceAddress.from("/system-property=foo");
+
+Task<FlowContext> check = context -> {
+    return dispatcher.execute(new Operation.Builder(address, READ_RESOURCE_OPERATION).build())
+            .doOnSuccess(result -> context.push(200))
+            .doOnError(exception -> context.push(404))
+            .toCompletable();
+};
+Task<FlowContext> add = context -> {
+    int status = context.pop();
+    return status == 200 
+            ? Completable.complete() 
+            : dispatcher.execute(new Operation.Builder(address, ADD).build()).toCompletable();
+};
+
+Flow.series(new FlowContext(Progress.NOOP), check, add).subscribe(new Outcome<FlowContext>() {
+        @Override
+        public void onError(FlowContext context, Throwable error) {
+            logger.error("Unable to create system property 'foo': {}", error.getMessage());
+        }
+
+        @Override
+        public void onSuccess(FlowContext flowContext) {
+            logger.info("System property 'foo' successfully created.");
+        }
+});
+``` 
 
 # DMR
 
-operations, resource address, model nodes, ...
+This section assumes you're familiar with the basic concepts of the WildFly management model. If not please read the [admin guide](http://docs.wildfly.org/Admin_Guide.html) in the WildFly documentation.
+
+The communication with the management endpoint, heavily relies on the [detyped management representation](http://docs.wildfly.org/Admin_Guide.html#Detyped_management_and_the_jboss-dmr_library) as defined in [JBoss DMR](https://github.com/jbossas/jboss-dmr). Due to restriction in GWT (no threading, no IO) HAL comes with its own fork of JBoss DMR. It's a clone of the original code without all the pieces which don't make sense and don't work in GWT. 
+
+On top of that HAL adds a small layer of more strongly typed classes. They all extend from `org.jboss.hal.dmr.ModelNode` so you don't lose the flexibility, but result in more readable code. 
+
+**Operation**\
+Represents a DMR operation like `read-resource` or `add`. An operation always requires a resource address and the actual operation name. Optionally you can add parameters as key/value pairs. Operations should be built using the builder `org.jboss.hal.dmr.Operation.Builder`:
+
+```java
+Operation operation = new Operation.Builder(address, "read-log-file")
+        .param("lines", 100)
+        .param("tail", true)
+        .build();
+```
+
+**Composite**\
+Represents a composite operation consisting of several operations. When executed by the dispatcher you get back an instance of `org.jboss.hal.dmr.CompositeResult`. Use this class to easily access the different step results by index or name:
+
+```java
+List<Operation> operations = ...;
+dispatcher.execute(new Composite(operations), (CompositeResult result) -> {
+    List<Property> list0 = result.step(0).get(RESULT).asPropertyList();
+    List<Property> list1 = result.step(1).get(RESULT).asPropertyList();
+    ...
+});
+```
+
+**ResourceAddress**\
+Represents a fully qualified DMR address ready to be put into a DMR operation. The address consists of 0-n segments
+ with a name and a value for each segment. Implemented by `org.jboss.hal.dmr.ResourceAddress`. 
+
+**ModelNodeHelper**\
+Contains static helper methods related to model nodes. Some of them deal with reading deeply nested model nodes:
+
+```java
+Dispatcher dispatcher = ...;
+ResourceAddress address = ResourceAddress.from("/subsystem=jca");
+Operation operation = new Operation.Builder(address, READ_RESOURCE_OPERATION)
+        .param(RECURSIVE, true)
+        .build();
+dispatcher.execute(operation, result -> {
+    ModelNode beanValidation = ModelNodeHelper.failSafeGet("bean-validation/bean-validation");    
+});
+```
+
+**Dispatcher**\
+Executes operations against the management endpoint. You can execute normal and composite operations. There are signatures which use callbacks and RX variants which return `Single<CompositeResult>` resp. `Single<ModelNode>`. 
+
+```java
+dispatcher.execute(new Operation.Builder(ResourceAddress.root(), READ_RESOURCE_OPERATION).build())
+        .subscribe(payload -> logger.info("Root resource: {}", payload));
+
+dispatcher.execute(new Operation.Builder(ResourceAddress.root(), READ_RESOURCE_OPERATION).build(), 
+        payload -> logger.info("Root resource: {}", payload));
+```
+
+{{< callout warning >}}
+**Payload != Response**
+
+Whether you use a callback or an RX type, please note that the model node passed to the callback resp. used in the RX type is *not* the full response, but just the `result` part of what you normally get when executing operations in the CLI:
+
+```bash
+[standalone@localhost:9990 /] :read-resource
+{
+    "outcome" => "success",
+    "result" => {
+        "management-major-version" => 6,
+        "management-micro-version" => 0,
+        "management-minor-version" => 0,
+        "name" => "hpehl-macbook",
+        ...
+    }
+}
+```
+{{</ callout >}}
 
 # Metadata
 
 resource description, security context, capabilities, registries, first and second level cache
+
+statement context, address template w/ {selected.*} variables
 
 `org.jboss.hal.meta.StatementContext`
 

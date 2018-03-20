@@ -13,7 +13,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{ range .Pages.ByTitle.Reverse }}
+                {{ range .Pages.ByWeight.Reverse }}
                 <tr>
                     <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
                     <td>{{ delimit .Params.target ", " }}</td>

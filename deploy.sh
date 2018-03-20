@@ -24,6 +24,6 @@ git push origin master
 cd ..
 
 # Push the main repo
-if [ $1 = "--push" ]; then
+if [ $1 == "--push" ]; then
     git commit -am "Push to https://hal.github.io" && git push origin master
 fi

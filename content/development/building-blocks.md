@@ -35,7 +35,7 @@ public class ConfigModule extends AbstractGinModule {
 }
 ```
 
-Most maven modules in HAL have their own GIN module. All GIN modules are annotated with `@GinModule` and are collected by an annotation processor. This processor generates one composite GIN module which includes *all* other GIN modules: 
+Most maven modules in HAL have their own GIN module. All GIN modules are annotated with `org.jboss.hal.spi.GinModule` and are collected by an annotation processor. This processor generates one composite GIN module which includes *all* other GIN modules: 
 
 ```java
 /*
@@ -160,9 +160,9 @@ Flow.series(new FlowContext(Progress.NOOP), check, add).subscribe(new Outcome<Fl
 
 This section assumes you're familiar with the basic concepts of the WildFly management model. If not please read the [admin guide](http://docs.wildfly.org/Admin_Guide.html) in the WildFly documentation.
 
-The communication with the management endpoint, heavily relies on the [detyped management representation](http://docs.wildfly.org/Admin_Guide.html#Detyped_management_and_the_jboss-dmr_library) as defined in [JBoss DMR](https://github.com/jbossas/jboss-dmr). Due to restriction in GWT (no threading, no IO) HAL comes with its own fork of JBoss DMR. It's a clone of the original code without all the pieces which don't make sense and don't work in GWT. 
+The communication with the management endpoint, heavily relies on the [detyped management representation](http://docs.wildfly.org/Admin_Guide.html#Detyped_management_and_the_jboss-dmr_library) as defined in [JBoss DMR](https://github.com/jbossas/jboss-dmr). Due to restrictions in GWT (no threading, no IO) HAL comes with its own fork of JBoss DMR. It's a clone of the original code without all the pieces which don't make sense and don't work in GWT. 
 
-On top of that HAL adds a small layer of more strongly typed classes. They all extend from `org.jboss.hal.dmr.ModelNode` so you don't lose the flexibility, but result in more readable code. 
+HAL adds a thin layer of more strongly typed classes on top of that. They all extend from `org.jboss.hal.dmr.ModelNode` so you don't lose the flexibility, but are more specific so that the the code becomes more readable. 
 
 **Operation**\
 Represents a DMR operation like `read-resource` or `add`. An operation always requires a resource address and the actual operation name. Optionally you can add parameters as key/value pairs. Operations should be built using the builder `org.jboss.hal.dmr.Operation.Builder`:
@@ -191,7 +191,7 @@ Represents a fully qualified DMR address ready to be put into a DMR operation. T
  with a name and a value for each segment. Implemented by `org.jboss.hal.dmr.ResourceAddress`. 
 
 **ModelNodeHelper**\
-Contains static helper methods related to model nodes. Some of them deal with reading deeply nested model nodes:
+Contains static helper methods related to model nodes. Some of them deal with reading deeply nested model nodes using a path seperated by "/":
 
 ```java
 Dispatcher dispatcher = ...;
@@ -220,7 +220,7 @@ dispatcher.execute(new Operation.Builder(ResourceAddress.root(), READ_RESOURCE_O
 
 Whether you use a callback or an RX type, please note that the model node passed to the callback resp. used in the RX type is *not* the full response, but just the `result` part of what you normally get when executing operations in the CLI:
 
-```bash
+```
 [standalone@localhost:9990 /] :read-resource
 {
     "outcome" => "success",
@@ -237,15 +237,57 @@ Whether you use a callback or an RX type, please note that the model node passed
 
 # Metadata
 
-resource description, security context, capabilities, registries, first and second level cache
+HAL heavily relies on metadata from the resource descriptions. This data is used when building the user interface in many different ways:
 
-statement context, address template w/ {selected.*} variables
+- the descriptions are used for the context help
+- the data type and flags like `required` are used to build the form items
+- the capabilities are used to build type-ahead combo boxes
+- the security related information is used to filter form items and disable / enable buttons
 
-`org.jboss.hal.meta.StatementContext`
+The resource descriptions must be present, before the UI is setup. That's why central classes like presenter proxies and finder columns can be annotated with `org.jboss.hal.spi.Requires`. This information is parsed by an annotation processor and made available as an implementation of `org.jboss.hal.meta.resource.RequiredResources`. Here's an example of the batch presenter:
+
+```java
+public class BatchPresenter extends MbuiPresenter<BatchPresenter.MyView, BatchPresenter.MyProxy>
+        implements SupportsExpertMode {
+        
+    ...
+    
+    @ProxyCodeSplit
+    @NameToken("batch-jberet-configuration")
+    @Requires("/{selected.profile}/subsystem=batch-jberet")
+    public interface MyProxy extends ProxyPlace<BatchPresenter> {}
+}
+```
+
+When the user navigates to http://localhost:9990/#batch-jberet-configuration the following steps are executed:
+
+1. The required resources for the name token "batch-jberet-configuration" are looked up from the registry.
+1. The first and second level cache are checked whether the metadata is already present.
+1. If not present, the DMR operation `/subsystem=batch-jberet:read-resource-description` is executed.
+1. The response is parsed and stored in the registries and caches. 
+
+Complex presenters may have a lot of required resources and reading them takes some time. That's why HAL stores the meta data in different registries and caches. There's a first level cache with a limited number of entries which lives in the memory and there's a second level cache which is based on [PouchDB](https://pouchdb.com/) and which is stored in the browser local storage.
+
+Use the class `MetadataRegistry` to get metadata for a given address template. The class `Metadata` is an umbrella around the different parts of the resource description: descriptions, attribute metadata, security context and capabilities. An `AddressTemplate` is like a resource address, but can contain variable parts:
+ 
+- `{domain.controller}`: The name of the domain controller
+- `{selected.profile}`: The selected profile 
+- `{selected.group}`: The selected server group
+- `{selected.host}`: The selected host
+- `{selected.server-config}`: The selected server-config
+- `{selected.server}`: The selected server
+
+The values for these variables are stored in class `StatementContext` and updated as the user navigates through the console. The address template class has methods to resolve an template into a real resource address:
+
+```java
+StatementContext statementContext = ...;
+AddressTemplate template = AddressTemplate.of("{selected.host}/{selected.server}/subsystem=elytron");
+ResourceAddress address = template.resolve(statementContext);
+```  
 
 # Ballroom
 
-core UI elements, Elemento, PatternFly 
+Core UI elements, Elemento, PatternFly 
 
 # Core
 

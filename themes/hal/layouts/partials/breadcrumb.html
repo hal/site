@@ -3,7 +3,7 @@
 {{- end -}}
 {{- if not (.currentPage.IsHome) -}}
     {{- if eq .id .currentPage.UniqueID -}}
-        <li class="breadcrumb-item active" aria-current="page">
+        <li class="breadcrumb-item" aria-current="page">
             {{- if .currentPage.Parent -}}
                 <span class="dropdown">
                     <a class="dropdown-toggle clickable" id="{{ .currentPage.UniqueID }}" data-toggle="dropdown">

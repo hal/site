@@ -282,10 +282,46 @@ The values for these variables are stored in class `StatementContext` and update
 ```java
 StatementContext statementContext = ...;
 AddressTemplate template = AddressTemplate.of("{selected.host}/{selected.server}/subsystem=elytron");
-ResourceAddress address = template.resolve(statementContext);
+ResourceAddress address = template.resolve(statementContext); 
 ```  
 
+In domain mode with host 'master' and server 'server-one' selected, this results in the address
+`/host=master/server=server-one/subsystem=elytron`.
+
 # Ballroom
+
+The ballroom module contains the core UI elements. This includes many different components from PatternFly like alerts, charts, dialogs, forms, tables and wizards. Most of them are created with [Elemento](https://github.com/hal/elemento) and typically look like this:
+
+```java
+public class Tabs implements IsElement {
+
+    private final HTMLElement root;
+    private final HTMLElement tabs;
+    private final HTMLElement panes;
+    private final Map<Integer, String> indexToId;
+    private final Map<String, HTMLElement> paneElements;
+
+    public Tabs(String id) {
+        root = div().id(id)
+                .add(tabs = ul()
+                        .css(nav, navTabs, navTabsPf, navTabsHal)
+                        .attr(UIConstants.ROLE, UIConstants.TABLIST)
+                        .asElement())
+                .add(panes = div().css(tabContent).asElement())
+                .asElement();
+
+        indexToId = new HashMap<>();
+        paneElements = new HashMap<>();
+    }
+
+    @Override
+    public HTMLElement asElement() {
+        return root;
+    }
+
+    // more methds...
+}
+```  
 
 Core UI elements, Elemento, PatternFly 
 

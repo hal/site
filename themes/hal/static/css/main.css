@@ -10,22 +10,26 @@ pre, code {
     font-family: 'Overpass Mono', monospace;
 }
 
+.breadcrumb-item, .hal-aside a, .hal-breadcrumb-only a {
+    color: #6c757d;
+}
+
 .clickable {
     cursor: pointer;
 }
 
+.hal-article {
+    order: 1;
+}
+
 .hal-aside {
-    font-size: .875rem;
     overflow-y: auto;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+    order: 2;
     position: fixed;
     right: 0;
     top: 3.5rem;
-}
-
-.hal-aside a, .hal-breadcrumb-only a {
-    color: #6c757d;
 }
 
 .hal-aside h6 {
@@ -39,10 +43,6 @@ pre, code {
 
 .hal-aside-separator {
     border-left: 1px solid #eee;
-}
-
-.hal-breadcrumb .breadcrumb-item.active, .hal-breadcrumb-only .breadcrumb-item.active {
-    color: #999;
 }
 
 .hal-callout {

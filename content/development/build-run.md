@@ -1,7 +1,7 @@
 ---
 title: "Build & Run"
 date: 2018-03-08T16:29:52+01:00
-description: "Explains how to build and run the console. Talks about the prerequisites and what it necessary to debug the codebase."
+description: "Explains how to build and run the console. Talks about the prerequisites and what is necessary to debug the codebase."
 icon: "/img/tools.png"
 toc: true
 weight: 10
@@ -18,7 +18,7 @@ For a full build use
 mvn clean install
 ``` 
 
-This includes the GWT compiler, which might take a while. If you just want to make sure that there are no compilation or test failures use
+This includes the GWT compiler, which might take a while. If you just want to make sure that there are no compilation or test failures, you canskip the GWT compiler and use
 
 ```bash
 mvn clean install -Dgwt.skipCompilation
@@ -59,7 +59,7 @@ Then open http://localhost:8888/dev.html in your browser and connect to your Wil
 # Debug
 
 {{< imgflow src="/img/development/debug.png" float="right" >}}
-GWT uses the [SourceMaps standard](https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit?usp=sharing) to map the Java source code to the transpiled JavaScript code. This makes it possible to use the browser development tools for debugging.
+Start the console as described in the previous chapter. GWT uses the [SourceMaps standard](https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit?usp=sharing) to map the Java source code to the transpiled JavaScript code. This makes it possible to use the browser development tools for debugging.
 
 In Chrome open the development tools and switch to the 'Sources' tab. Press <kbd>⌘ P</kbd> and type the name of the Java source file you want to open. 
 

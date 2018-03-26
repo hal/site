@@ -53,7 +53,7 @@ public class CompositeModule extends AbstractGinModule {
 }
 ```
 
-To use dependency injection in your classes use the annotation `javax.inject.Inject`. All classes bound in GIN modules, presenters, views and finder columns are available for dependency injection. We recommend to use constructor injection. 
+This class is a good starting point to find out which classes are available for dependency injection. To use dependency injection in your classes use the annotation `javax.inject.Inject`. All classes bound in GIN modules, presenters, views and finder columns are available for dependency injection. We recommend to use constructor injection. 
 
 # Logging
 
@@ -102,16 +102,16 @@ Information about the console and its environment is available using the interfa
 
 - HAL version
 - HAL build (community or product, ie. WildFly or JBoss EAP)
-- Supported locales
+- supported locales
 
 Some information is only available after the console has been fully loaded: 
 
-- Instance info containing the product name and version and the release name and version
-- Operation mode (standalone or domain)
-- Name of the domain controller
-- Management version
-- Access control provider (simple or rbac)
-- Standard and scoped roles
+- product name / version and release name / version
+- operation mode (standalone or domain)
+- name of the domain controller
+- management version
+- access control provider (simple or rbac)
+- standard and scoped roles
 
 Another important building block is the interface `org.jboss.hal.config.Endpoints`. It provides access to the endpoints used in HAL. Finally there's the class `org.jboss.hal.config.Settings` which provides access to the user settings. 
 
@@ -239,12 +239,12 @@ Whether you use a callback or an RX type, please note that the model node passed
 
 HAL heavily relies on metadata from the resource descriptions. This data is used when building the user interface in many different ways:
 
-- the descriptions are used for the context help
-- the data type and flags like `required` are used to build the form items
-- the capabilities are used to build type-ahead combo boxes
-- the security related information is used to filter form items and disable / enable buttons
+- The descriptions are used for the context help.
+- The data type and flags like `required` are used to build the form items.
+- The capabilities are used to build type-ahead combo boxes.
+- The security related information is used to filter form items and disable / enable buttons.
 
-The resource descriptions must be present, before the UI is setup. That's why central classes like presenter proxies and finder columns can be annotated with `org.jboss.hal.spi.Requires`. This information is parsed by an annotation processor and made available as an implementation of `org.jboss.hal.meta.resource.RequiredResources`. Here's an example of the batch presenter:
+The metadata must be present, before the UI is setup. That's why central classes like presenter proxies and finder columns can be annotated with `org.jboss.hal.spi.Requires`. This information is parsed by an annotation processor and made available as an implementation of `org.jboss.hal.meta.resource.RequiredResources`. Here's an example of the batch presenter:
 
 ```java
 public class BatchPresenter extends MbuiPresenter<BatchPresenter.MyView, BatchPresenter.MyProxy>
@@ -266,7 +266,7 @@ When the user navigates to http://localhost:9990/#batch-jberet-configuration the
 1. If not present, the DMR operation `/subsystem=batch-jberet:read-resource-description` is executed.
 1. The response is parsed and stored in the registries and caches. 
 
-Complex presenters may have a lot of required resources and reading them takes some time. That's why HAL stores the meta data in different registries and caches. There's a first level cache with a limited number of entries which lives in the memory and there's a second level cache which is based on [PouchDB](https://pouchdb.com/) and which is stored in the browser local storage.
+Complex presenters may have a lot of required resources and reading them takes some time. That's why HAL stores the metadata in different registries and caches. There's a first level cache with a limited number of entries which lives in the memory and there's a second level cache which is based on [PouchDB](https://pouchdb.com/) and which is stored in the browser local storage.
 
 Use the class `MetadataRegistry` to get metadata for a given address template. The class `Metadata` is an umbrella around the different parts of the resource description: descriptions, attribute metadata, security context and capabilities. An `AddressTemplate` is like a resource address, but can contain variable parts:
  
@@ -290,10 +290,10 @@ In domain mode with host 'master' and server 'server-one' selected, this results
 
 # Ballroom
 
-The ballroom module contains the core UI elements. This includes many different components from PatternFly like alerts, charts, dialogs, forms, tables and wizards. Most of them are created with [Elemento](https://github.com/hal/elemento) and typically look like this:
+The ballroom module contains the core UI elements. This includes many different components from PatternFly like alerts, charts, dialogs, forms, list views, tables and wizards. Most of them are created using [Elemento's](https://github.com/hal/elemento) fluent API and can be seen as [custom elements](https://github.com/hal/elemento#custom-elements). In this context custom elements are a composite of HTML elements and/or other custom elements. They're ordinary classes which can hold state or register event handlers. The only requirement is to implement `IsElement<E extends HTMLElement>` and return the root element: 
 
 ```java
-public class Tabs implements IsElement {
+public class Tabs implements IsElement<HTMLElement> {
 
     private final HTMLElement root;
     private final HTMLElement tabs;
@@ -321,23 +321,229 @@ public class Tabs implements IsElement {
 
     // more methds...
 }
-```  
+```
 
-Core UI elements, Elemento, PatternFly 
+# CRUD Operations
 
-# Core
+The class `org.jboss.hal.core.CrudOperations` contains generic CRUD methods which can be roughly divided into the following categories:
 
-`org.jboss.hal.core.CoreStatementContext`
+- Add a (singleton) resource using a generic add resource dialog
+- Add a (singleton) resource using an operation
+- Read a resource (recursively)
+- Read child resources
+- Update a (singleton) resource using a change set (key/value map)
+- Update a (singleton) resource using an operation
+- Reset a (singleton) resource
+- Remove a (singleton) resource
+ 
+All in all there are over 60 different methods. Some methods just execute the underlying DMR operations, other methods also interact with the user by showing (confirmation) dialogs. Some methods use address templates, some resource addresses, some return RX types others accept callbacks.  
 
-`org.jboss.hal.core.CrudOperations`
+# Finder
 
-model node form, table, finder
+The finder is a central UI component in HAL. Each top level category (except the homepage) uses the finder for navigation. The finder manages a number of columns and one preview pane. In HAL there's only one finder instance which is used across the different top level categories. 
 
-# MBUI
+Finder columns have an unique ID, a title, a number of optional actions and an item renderer which defines how the items of this column are rendered. All items of a column must be of the same type. Columns are self-contained and should not have references to other columns (only by ID).
 
-annotation processor
+If you want to implement your own column follow these steps:
+
+1. Extend from `org.jboss.hal.core.finder.FinderColumn<T>`. 
+1. Annotate your class with `org.jboss.hal.spi.Column` resp. `org.jboss.hal.spi.AsyncColumn`. 
+1. Create an instance of `org.jboss.hal.core.finder.FinderColumn.Builder` and pass it to `super()`. The builder requires three mandatory parameters: 
+    1. an instance to the finder instance
+    1. an unique ID
+    1. the column title
+1. Use the builder to define additional column attributes: 
+    - column actions
+    - an implementation for `org.jboss.hal.core.finder.ItemsProvider<T>` 
+    - an implementation for `org.jboss.hal.core.finder.ItemRenderer<T>` and `org.jboss.hal.core.finder.ItemDisplay<T>`
+    - a custom item preview
+    - the ID for the next column
+
+Here's a complete example of a simple column which is used in the configuration section to manage the interfaces:
+
+```java
+@Column(Ids.INTERFACE)
+@Requires("/interface=*")
+public class InterfaceColumn extends FinderColumn<NamedNode> {
+
+    @Inject
+    public InterfaceColumn(Finder finder,
+            ColumnActionFactory columnActionFactory,
+            ItemActionFactory itemActionFactory,
+            Places places,
+            Dispatcher dispatcher,
+            CrudOperations crud) {
+
+        super(new Builder<NamedNode>(finder, Ids.INTERFACE, Names.INTERFACE)
+                .columnAction(columnActionFactory.add(
+                        Ids.INTERFACE_ADD,
+                        Names.INTERFACE,
+                        InterfacePresenter.ROOT_TEMPLATE,
+                        singletonList(INET_ADDRESS)))
+                .columnAction(columnActionFactory.refresh(Ids.INTERFACE_REFRESH))
+                .itemsProvider((context, callback) -> crud.readChildren(ResourceAddress.root(), INTERFACE,
+                        result -> callback.onSuccess(asNamedNodes(result))))
+                .useFirstActionAsBreadcrumbHandler()
+                .onPreview(item -> new InterfacePreview(item, dispatcher, places))
+        );
+
+        setItemRenderer(item -> new ItemDisplay<NamedNode>() {
+            @Override
+            public String getTitle() {
+                return item.getName();
+            }
+
+            @Override
+            public List<ItemAction<NamedNode>> actions() {
+                return asList(
+                        itemActionFactory.view(NameTokens.INTERFACE, NAME, item.getName()),
+                        itemActionFactory.remove(Names.INTERFACE, item.getName(), InterfacePresenter.ROOT_TEMPLATE,
+                                InterfaceColumn.this));
+            }
+        });
+    }
+}
+```
+
+HAL provides many factories and helper classes like `org.jboss.hal.core.finder.ColumnActionFactory` and `org.jboss.hal.core.finder.ItemActionFactory` which simplify adding common column and item actions. 
 
 # MVP
 
-presenter view, place manager, tokens 
+HAL uses [GWTP](https://dev.arcbees.com/gwtp/) for its MVP implementation. At the heart of GWTP is a model-view-presenter architecture (MVP). Although this model [has been lauded as one of the best approaches to GWT development](https://youtu.be/PDuhR18-EdM), it is still hard to find an out-of-the-box MVP solution that supports all the requirements of modern web apps. GWTP aims to provide such a solution while reducing the amount of code required to reach it.
 
+For example, adding history management and code splitting to your presenter is as simple as adding these lines to your class:
+
+```java
+@ProxyCodeSplit
+@NameToken("datasource-configuration")
+public interface MyProxy extends ProxyPlace<DataSourcePresenter> {
+}
+```
+                                                                           
+GWTP uses GWT's event bus in a clear and efficient way. Events are used to decouple loosely related objects, while program flow between strongly coupled components is kept clear using direct method invocations. The result is an easy to understand and debug application that can continually scale up.
+
+The goal of GWTP is to offer an easy-to-use MVP architecture with minimal boilerplate, without compromising GWT's best features. Here are some of the core features of GWTP:
+
+- Dependency injection through GIN
+- Simple and powerful history management mechanism
+- Lifecycle events to manage presenters
+- Lazy instantiation for presenters and views
+- Effortless and efficient code splitting
+- Bootstrap tools to make the creation of new GWT applications dead simple.
+
+{{< imgflow src="/img/development/mvp-classes.png" float="right" >}}
+HAL adds a thin layer on top of GWTP: Every presenter in HAL extends from `org.jboss.hal.core.mvp.HalPresenter`. This class implements central behaviour like integration with the header. It also ensures that every view implements `org.jboss.hal.core.mvp.HalView`. This interface is an adapter between GWTP views which are based on GWT widgets and HAL views which are based on HTML elements. 
+
+Presenters in HAL don't extend from `HalPresenter` directly though. Most presenters either extend from `FinderPresenter` or `ApplicationFinderPresenter`. 
+
+In addition there are several interfaces which are implemented by the various presenters and which add specific features:
+
+- `HasFinderPath`: Implemented by application presenters which interact with the finder.
+- `SupportsExpertMode`: Interface meant to be implemented by presenters which support switching to an 'expert mode' using the model browser
+- `SupportsExternalMode`: Tagging interface meant to be implemented by presenters which can be opened in an external browser window / tab.   
+{{</ imgflow >}}
+
+# MBUI
+
+Many application screens in HAL which are used to configure resources follow a very similar layout: 
+
+- an optional vertical navigation at the left
+- a header and an optional description (often taken from the resource description)
+- an optional table showing the resources
+- one or several tabs holding the forms to view and modify the resource
+
+In addition also the behaviour is very similar. The table has buttons to add and remove resources, the forms have links to view, modify or reset resources. 
+
+HAL can generate presenter and view implementations described by MBUI XML files. MBUI stands for **m**odel **b**ased **u**ser **i**nterface. The XML files use the [Relax NG](http://www.relaxng.org/) schema defined by [`MbuiView.rng`](https://raw.githubusercontent.com/hal/hal.next/develop/spi/src/main/resources/org/jboss/hal/spi/MbuiView.rng). The code generation is triggered by an annotation processor. 
+
+To implement a MBUI presenter / view you need the following compilation units:
+
+1. presenter which extends `MbuiPresenter<V extends MbuiView, Proxy_ extends ProxyPlace<?>>`
+1. abstract view annotated with `MbuiView` which implements `MbuiView<P extends MbuiPresenter>`
+1. MBUI XML file which defines the UI
+
+The following code snippets show the path presenter / view tuple which uses MBUI to define the UI *and* common behaviour:
+
+**PathsPresenter.java**
+
+```java
+public class PathsPresenter extends MbuiPresenter<PathsPresenter.MyView, PathsPresenter.MyProxy> {
+
+    @Inject
+    public PathsPresenter(EventBus eventBus, MyView view, MyProxy proxy, Finder finder, CrudOperations crud) {
+        super(eventBus, view, proxy, finder);
+        this.crud = crud;
+    }
+
+    // business methods omitted 
+
+    @ProxyCodeSplit
+    @Requires("/path=*")
+    @NameToken(NameTokens.PATH)
+    public interface MyProxy extends ProxyPlace<PathsPresenter> { }
+
+    public interface MyView extends MbuiView<PathsPresenter> {
+        void update(List<NamedNode> paths);
+    }
+}
+```
+
+**PathsView.java**
+
+```java
+@MbuiView
+public abstract class PathsView extends MbuiViewImpl<PathsPresenter> implements PathsPresenter.MyView {
+
+    public static PathsView create(final MbuiContext mbuiContext) {
+        return new Mbui_PathsView(mbuiContext);
+    }
+
+    @MbuiElement("path-table") Table<NamedNode> table;
+    @MbuiElement("path-form") Form<NamedNode> form;
+
+    PathsView(MbuiContext mbuiContext) {
+        super(mbuiContext);
+    }
+
+    @Override
+    public void update(List<NamedNode> paths) {
+        form.clear();
+        table.update(paths);
+    }
+}
+```
+
+**PathsView.mbui.xml**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<view>
+    <metadata address="/path=*">
+        <h1>Paths</h1>
+        <p>${metadata.getDescription().getDescription()}</p>
+        <table id="path-table" form-ref="path-form">
+            <actions>
+                <action handler-ref="add-resource">
+                    <attributes>
+                        <attribute name="name"/>
+                        <attribute name="path"/>
+                        <attribute name="relative-to" suggest-handler="${new PathsAutoComplete()}"/>
+                    </attributes>
+                </action>
+                <action handler-ref="remove-resource" scope="selected" name-resolver="${table.selectedRow().getName()}"/>
+            </actions>
+            <columns>
+                <column name="name"/>
+                <column name="path"/>
+            </columns>
+        </table>
+        <form id="path-form" auto-save="true" reset="true" name-resolver="${form.getModel().getName()}">
+            <attributes>
+                <attribute name="name"/>
+                <attribute name="path"/>
+                <attribute name="relative-to" suggest-handler="${new PathsAutoComplete()}"/>
+            </attributes>
+        </form>
+    </metadata>
+</view>
+```

@@ -1,5 +1,6 @@
 baseURL = "https://hal.github.io/"
 description = "HAL is the project name of the management console used in WildFly and JBoss EAP"
+enableGitInfo = true
 googleAnalytics = "UA-89365654-5"
 languageCode = "en-us"
 pluralizeListTitles = false
@@ -118,6 +119,7 @@ theme = "hal"
   url = "https://github.com/hal/hal.next/fork"
 
 [params]
+  copyrighthtml = "<span class=\"far fa-copyright\"></span> Copyright 2018 Red Hat, Inc."
   mainClass = "col-12 col-md-12 py-md-3 px-md-5"
 
 [taxonomies]

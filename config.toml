@@ -40,12 +40,12 @@ theme = "hal"
   weight = 60
   url = "/releases/"
 
-[[menu.external]]
-  name = "Youtube"
-  identifier = "youtube"
-  weight = 10
-  post = "fab fa-youtube"
-  url = "https://www.youtube.com/channel/UCcXaCVPvmzgLz74FnzlWoSg/"
+#[[menu.external]]
+#  name = "Youtube"
+#  identifier = "youtube"
+#  weight = 10
+#  post = "fab fa-youtube"
+#  url = "https://www.youtube.com/channel/UCcXaCVPvmzgLz74FnzlWoSg/"
 [[menu.external]]
   name = "Source Code"
   identifier = "code"

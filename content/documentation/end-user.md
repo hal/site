@@ -78,6 +78,7 @@ More complex subsystems like Infinispan or messaging add additional columns to t
 The runtime section is used to control the lifecycle of hosts, server groups and servers. In addition you can monitor runtime data and statistics provided by the various subsystems. You can also enable and view configuration changes. Finally you can view the JMX beans and browser the server log files.  
 
 {{</ imgflow >}}
+\
 
 # Patching
 
@@ -99,7 +100,7 @@ WildFly ships with two access control "providers", the "simple" provider, and th
 
 The access control scheme implemented by the "rbac" provider is based on seven standard roles. A role is a named set of permissions to perform one of the actions: addressing (i.e. looking up) a management resource, reading it, or modifying it. The different roles have constraints applied to their permissions that are used to determine whether the permission is granted.
 
-## RBAC Roles
+## Roles
 
 The seven standard roles are divided into two broad categories, based on whether the role can deal with items that are considered to be "security sensitive". Resources, attributes and operations that may affect administrative security (e.g. security realm resources and attributes that contain passwords) are "security sensitive".
 
@@ -120,7 +121,3 @@ Three roles are granted permissions for security sensitive items:
 - Administrator – has all permissions except cannot read or write resources related to the administrative audit logging system.
 
 - Auditor – can read anything. Can only modify the resources related to the administrative audit logging system.
-
-## Switching to the "rbac" provider
-
-Before changing the provider to "rbac", be sure your configuration has a user who will be mapped to one of the RBAC roles, preferably with at least one in the Administrator or SuperUser role. Otherwise your installation will not be manageable except by shutting it down and editing the xml configuration. If you have started with one of the standard xml configurations shipped with WildFly, the "$local" user will be mapped to the "SuperUser" role and the "local" authentication scheme will be enabled. This will allow a user running the CLI on the same system as the WildFly process to have full administrative permissions. Remote CLI users and web-based admin console users will have no permissions.

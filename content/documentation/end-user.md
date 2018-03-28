@@ -7,8 +7,10 @@ toc: true
 weight: 20
 ---
 The HAL management console features a rich user interface to configure, analyse and monitor the complete WildFly management model. The console uses six main sections: homepage, deployments, configuration, runtime, patching and access control.
- 
+
+<!-- 
 This page gives a quick introduction to the main sections. If you want to learn more about the most common use cases, visit the [YouTube channel](https://www.youtube.com/channel/UCcXaCVPvmzgLz74FnzlWoSg/) and watch the screen casts.
+-->
 
 # Homepage
 

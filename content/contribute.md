@@ -18,7 +18,7 @@ There are many ways to get in touch with us:
 <ul class="fa-ul">
   <li><span class="fa-li"><i class="far fa-envelope"></i></span>HAL is part of Wildfly and hence you can post questions to the <a href="https://community.jboss.org/en/wildfly?view=discussions">WildFly user forums.</a></li>
   <li><span class="fa-li"><i class="far fa-comments"></i></span>You can also use <a href="https://www.hipchat.com/">HipChat</a> for real-time communications. Join us in the <a href="https://www.hipchat.com/gFOhnVQke">WildFly user room</a>.</li>
-  <li><span class="fa-li"><i class="fab fa-gitter"></i></span>Finally you can find us also on <a href="https://gitter.im/">Gitter</a> in the <a href="https://gitter.im/hal/hal.next">HAL room</a>.</li>
+  <li><span class="fa-li"><i class="fab fa-gitter"></i></span>Finally you can find us also on <a href="https://gitter.im/">Gitter</a> in the <a href="https://gitter.im/hal/console">HAL room</a>.</li>
 </ul>
 
 # File an Issue
@@ -31,4 +31,4 @@ All HAL issues are tracked in the JBoss JIRA. Feel free to raise an issue, wheth
 
 # Submit a Pull Request
 
-We love pull requests! Submitting a pull request involves forking the GutHub project and creating branches. Please follow the steps in the [contribution guide](https://github.com/hal/hal.next/blob/develop/CONTRIBUTING.md). 
+We love pull requests! Submitting a pull request involves forking the GutHub project and creating branches. Please follow the steps in the [contribution guide](https://github.com/hal/console/blob/develop/CONTRIBUTING.md).

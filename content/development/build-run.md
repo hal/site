@@ -10,7 +10,7 @@ This page explains how to build, run and debug the console. We recommend to use 
 
 # Build
 
-If not already done, clone the code from https://github.com/hal/hal.next/ or [fork](https://github.com/hal/hal.next/fork) the repository into your own personal GitHub account. 
+If not already done, clone the code from https://github.com/hal/console/ or [fork](https://github.com/hal/console/fork) the repository into your own personal GitHub account.
 
 For a full build use 
 

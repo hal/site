@@ -51,13 +51,13 @@ theme = "hal"
   identifier = "code"
   weight = 20
   post = "fab fa-github"
-  url = "https://github.com/hal/hal.next"
+  url = "https://github.com/hal/console"
 [[menu.external]]
   name = "Gitter"
   identifier = "gitter"
   weight = 30
   post = "fab fa-gitter"
-  url = "https://gitter.im/hal/hal.next"
+  url = "https://gitter.im/hal/console"
 [[menu.external]]
   name = "Issues"
   identifier = "issues"
@@ -116,7 +116,7 @@ theme = "hal"
   name = "Fork the Code"
   parent = "contribute"
   weight = 320
-  url = "https://github.com/hal/hal.next/fork"
+  url = "https://github.com/hal/console/fork"
 
 [params]
   copyrighthtml = "<span class=\"far fa-copyright\"></span> Copyright 2018 Red Hat, Inc."

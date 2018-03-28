@@ -454,7 +454,7 @@ Many application screens in HAL which are used to configure resources follow a v
 
 In addition also the behaviour is very similar. The table has buttons to add and remove resources, the forms have links to view, modify or reset resources. 
 
-HAL can generate presenter and view implementations described by MBUI XML files. MBUI stands for **m**odel **b**ased **u**ser **i**nterface. The XML files use the [Relax NG](http://www.relaxng.org/) schema defined by [`MbuiView.rng`](https://raw.githubusercontent.com/hal/hal.next/develop/spi/src/main/resources/org/jboss/hal/spi/MbuiView.rng). The code generation is triggered by an annotation processor. 
+HAL can generate presenter and view implementations described by MBUI XML files. MBUI stands for **m**odel **b**ased **u**ser **i**nterface. The XML files use the [Relax NG](http://www.relaxng.org/) schema defined by [`MbuiView.rng`](https://raw.githubusercontent.com/hal/console/develop/spi/src/main/resources/org/jboss/hal/spi/MbuiView.rng). The code generation is triggered by an annotation processor.
 
 To implement a MBUI presenter / view you need the following compilation units:
 

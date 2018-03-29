@@ -2,8 +2,8 @@
 title: "Extensions"
 date: 2018-03-08T16:30:20+01:00
 description: "Shows how you can write custom runtime extensions using the JavaScript API. Includes how to setup your environment and how to add the extensions to the console."
-draft: true
 icon: "/img/plug.png"
+toc: true
 weight: 40
 ---
 Extensions are a way to add features to the management console. They are written in JavaScript and should use the [JavaScript API]({{< relref "development/javascript-api" >}}) to build the UI and interact with the management interface.  
@@ -30,7 +30,7 @@ let whoami = hal.core.Extension.header("whoami", "Who am I?", () => {
 core.extensionRegistry.register(whoami);
 ```
 
-The extension's script and stylesheets must be served by endpoints which are known to HAL.next. When HAL.next starts, it injects the scripts and stylesheets of all known extensions which in turn will make them available in HAL.next.
+The extension's script and stylesheets must be served by endpoints which are known to HAL. When HAL starts, it injects the scripts and stylesheets of all known extensions which in turn will make them available in HAL.
 
 # Extension Points
 
@@ -47,7 +47,7 @@ Extensions must adhere to certain rules:
 
 - the code must be in one file
 - the stylesheets can be spread across multiple files
-- the extension must register itself using HAL.next's JavaScript API (there's no lookup / detection mechanism in the console).
+- the extension must register itself using HAL's JavaScript API (there's no lookup / detection mechanism in the console).
 
 Please make sure that your extension doesn't use the global scope. Use idioms like [IIFE](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) to define a custom scope for your extension.
 

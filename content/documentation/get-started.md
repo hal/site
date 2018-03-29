@@ -6,7 +6,7 @@ icon: "/img/rocket.png"
 toc: true
 weight: 10
 ---
-The HAL management console is part of every WildFly and JBoss EAP installation. To get started simply add an user via the `add-user.sh` script, fire up your browser and open http://localhost:9990. 
+The HAL management console is part of every WildFly and JBoss EAP installation. To get started simply fire up your browser and open http://localhost:9990. 
 
 # Independent Mode
 

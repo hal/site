@@ -18,11 +18,35 @@ For a full build use
 mvn clean install
 ``` 
 
-This includes the GWT compiler, which might take a while. If you just want to make sure that there are no compilation or test failures, you canskip the GWT compiler and use
+This includes the GWT compiler, which might take a while. If you just want to make sure that there are no compilation or test failures, you can skip the GWT compiler and use
 
 ```bash
 mvn clean install -Dgwt.skipCompilation
 ``` 
+
+## Profiles
+
+The maven build defines the following profiles:
+
+- `docker` Foo
+
+- `esdoc` Foo
+
+- `prod` Foo
+
+- `release` Foo
+
+- `site` Foo
+
+- `theme-eap` Foo
+
+- `theme-hal` Foo
+
+- `theme-wildfly` Foo
+
+## Scripts
+
+ 
 
 # Run
 

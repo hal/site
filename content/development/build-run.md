@@ -28,25 +28,28 @@ mvn clean install -Dgwt.skipCompilation
 
 The maven build defines the following profiles:
 
-- `docker` Foo
-
-- `esdoc` Foo
-
-- `prod` Foo
-
-- `release` Foo
-
-- `site` Foo
-
-- `theme-eap` Foo
-
-- `theme-hal` Foo
-
-- `theme-wildfly` Foo
+- `docker` Produces two docker images:
+   1. [`halconsole/hal-standalone`](https://hub.docker.com/r/halconsole/hal-standalone/) contains HAL standalone
+   1. [`halconsole/hal-wildfly`](https://hub.docker.com/r/halconsole/hal-wildfly/) contains latest WildFly and and HAL 
+- `esdoc` Produces the JavaScript API documentation
+- `prod` Runs the GWT compiler using production settings. Minimizes the CSS and JavaScrip code. 
+- `release` Signs the maven artifacts, builds and attaches Javadoc
+- `site` Builds the maven site
+- `theme-eap` Applies the EAP theme
+- `theme-hal` Applies the HAL theme
+- `theme-wildfly` Applies the WildFly theme
 
 ## Scripts
 
- 
+HAL contains some scripts for typical development tasks. Here's a short description of the scripts and what they're used for:
+
+- `app/refresh.sh`: Rebuilds certain resources when running the GWT development mode (see below)
+- `esdoc.sh`: Builds and pushes the JavaScript API documentation
+- `loc.sh`: Calculates code metrics such as LoC per file type
+- `release.sh`: Builds and deploys HAL using profiles `release,prod,theme-hal,docker` and pushes the latest console build to https://hal.github.io/console/
+- `snapshot.sh`: Builds and deploys the latest snapshot
+- `versionBump.sh`: Bumps the version in all POMs and some documentation files
+- `zanata.sh`: Syncs the i18n resources with the Zanata translation service.
 
 # Run
 

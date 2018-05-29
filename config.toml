@@ -53,15 +53,21 @@ theme = "hal"
   post = "fab fa-github"
   url = "https://github.com/hal/console"
 [[menu.external]]
+  name = "HipChat"
+  identifier = "hipchat"
+  weight = 30
+  post = "far fa-comments"
+  url = "https://www.hipchat.com/gFOhnVQke"
+[[menu.external]]
   name = "Gitter"
   identifier = "gitter"
-  weight = 30
+  weight = 40
   post = "fab fa-gitter"
   url = "https://gitter.im/hal/console"
 [[menu.external]]
   name = "Issues"
   identifier = "issues"
-  weight = 30
+  weight = 50
   post = "fas fa-bug"
   url = "https://issues.jboss.org/projects/HAL/issues"
 

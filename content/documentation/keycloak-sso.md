@@ -13,6 +13,7 @@ When user configures Wildfly to authenticate user to Keycloak SSO, HAL supports 
 - Provide the logout option in HAL to call the logout page on keycloak. This is displayed under the username in the header section.
 - Displays basic Keycloak settings in the Access Control page.
 - Displays a link to user profile on Keycloak server.
+- Point the Access Control link in the Homepage to the Keycloak server URL.
 
 The Wildfly Access Control mechanism should be disabled, because the users and roles are managed in Keycloak server. However RBAC continues to works in Wildfly to fine tune permission settings.
 

@@ -12,8 +12,10 @@ git add .
 
 # Commit changes.
 msg="rebuilding site `date`"
-if [ $# -eq 1 ]
-  then msg="$1"
+if [ $# -gt 0 ] && [ "$1" != "--push" ]; then
+  msg="${1}"
+fi
+if [ $# -gt 1 ] ; then
   shift
 fi
 git commit -m "$msg"
@@ -25,6 +27,6 @@ git push origin master
 cd ..
 
 # Push the main repo
-if [ $1 == "--push" ]; then
+if [ "${1}" == "--push" ]; then
     git commit -am "Push to https://hal.github.io" && git push origin master
 fi

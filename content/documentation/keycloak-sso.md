@@ -4,7 +4,7 @@ date: 2018-06-19T11:29:20+01:00
 description: "Describes how HAL authentication works with Keycloak SSO"
 icon: "/img/shield.png"
 toc: true
-weight: 20
+weight: 30
 ---
 
 When user configures Wildfly to authenticate user to Keycloak SSO, HAL supports the authentication the following way:

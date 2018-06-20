@@ -37,6 +37,7 @@ When user wants to access HAL management console, it redirects to Keycloak serve
 
 The Access Control top level menu, shows basic Keycloak settings:
 
+- User information
 - Keycloak server url
 - Keycloak account profile
 - Realm name

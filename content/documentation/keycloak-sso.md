@@ -15,12 +15,17 @@ When user configures Wildfly to authenticate user to Keycloak SSO, HAL supports 
 - Displays a link to user profile on Keycloak server.
 - Point the Access Control link in the Homepage to the Keycloak server URL.
 
-The Wildfly Access Control mechanism should be disabled, because the users and roles are managed in Keycloak server. However RBAC continues to works in Wildfly to fine tune permission settings.
+The Wildfly Access Control mechanism to manage users and roles should be disabled, because they are managed in Keycloak server. However RBAC continues to works in Wildfly to fine tune permission settings.
 
 **How to setup Wildfly to use Keycloak authentication**
 
 - [How to install Keycloak Wildfly Adapter binaries](https://www.keycloak.org/docs/latest/securing_apps/index.html#jboss-eap-wildfly-adapter)
 - [How to configure Wildfly to enable keycloak](https://docs.jboss.org/author/display/WFLY/Protecting+Wildfly+Adminstration+Console+With+Keycloak)
+
+
+**Warning**
+
+- The authentication only works in standalone mode, as the wildfly keycloak adapter doesn't support domain mode yet.
 
 
 # Login attempt

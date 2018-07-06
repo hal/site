@@ -3,6 +3,7 @@ description = "HAL is the project name of the management console used in WildFly
 enableGitInfo = true
 googleAnalytics = "UA-89365654-5"
 languageCode = "en-us"
+paginate = 7
 pluralizeListTitles = false
 pygmentsCodefences = true
 pygmentsUseClasses = true
@@ -39,6 +40,11 @@ theme = "hal"
   identifier = "releases"
   weight = 60
   url = "/releases/"
+[[menu.global]]
+  name = "Blog"
+  identifier = "blog"
+  weight = 70
+  url = "/blog/"
 
 [[menu.external]]
   name = "Youtube"

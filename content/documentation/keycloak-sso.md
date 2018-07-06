@@ -6,7 +6,6 @@ icon: "/img/shield.png"
 toc: true
 weight: 30
 ---
-
 When user configures Wildfly to authenticate user to Keycloak SSO, HAL supports the authentication the following way:
 
 - HAL redirects the login attempt to keycloak server, if successful redirect back to HAL.

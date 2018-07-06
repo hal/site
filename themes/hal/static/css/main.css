@@ -45,6 +45,11 @@ pre, code {
     border-left: 1px solid #eee;
 }
 
+.hal-bigger {
+    font-size: 1.33rem;
+    line-height: 1.33rem;
+}
+
 .hal-callout {
     padding: 1.25rem;
     margin-top: 1.25rem;
@@ -101,19 +106,13 @@ pre, code {
     overflow: hidden;
 }
 
-.hal-nav-prev, .hal-nav-next {
-}
-
-.hal-nav-prev {
-}
-
-.hal-nav-next {
-}
-
-.hal-nav-link {
-}
-
-.hal-nav-link:hover {
+.hal-post-date {
+    color: #bbb;
+    font-size: 1.66rem;
+    font-weight: 100;
+    line-height: 1.66rem;
+    min-width: 15rem;
+    width: 15rem;
 }
 
 .hal-smaller {
@@ -123,6 +122,65 @@ pre, code {
 .hal-teaser-icon {
     height: auto;
     width: 48px;
+}
+
+.hal-tags {
+    list-style: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.hal-tags li {
+    float: left;
+}
+
+.hal-tag {
+    background: #eee;
+    border-radius: 3px 0 0 3px;
+    color: #999;
+    display: inline-block;
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 10px;
+    padding: 0 14px 0 18px;
+    position: relative;
+    text-decoration: none;
+    -webkit-transition: color 0.2s;
+}
+
+.hal-tag::before {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+    content: '';
+    height: 6px;
+    left: 6px;
+    position: absolute;
+    top: 7px;
+    width: 6px;
+}
+
+.hal-tag::after {
+    background: #fff;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #eee;
+    border-top: 10px solid transparent;
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.hal-tag:hover {
+    background-color: #999;
+    color: white;
+    text-decoration: none;
+}
+
+.hal-tag:hover::after {
+    border-left-color: #999;
 }
 
 .hal-toc ul {

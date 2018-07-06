@@ -1,0 +1,12 @@
+{{- define "main" -}}
+<div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <main class="{{ $.Site.Params.mainClass }} hal-content" role="main">
+            <article class="hal-article">
+                <header><h1 class="display-4">{{ .Title }}</h1></header>
+                {{ .Content }}
+            </article>
+        </main>
+    </div>
+</div>
+{{- end -}}

@@ -3,7 +3,7 @@
 {{- $breadcrumb := gt $depth 3 -}}
 <div class="container-fluid">
     <div class="row">
-        <main class="{{ $.Site.Params.mainClass }} hal-list" role="main">
+        <main class="{{ $.Site.Params.mainClass }}" role="main">
             {{- if $breadcrumb -}}
                 <nav class="hal-breadcrumb-only float-right" aria-label="breadcrumb">
                     <ol class="breadcrumb bg-white pr-0 pb-0">
@@ -23,7 +23,7 @@
                             {{- end -}}
                             <div>
                                 <h5 class="card-title"><a href="{{ $link }}" class="text-dark">{{ .Title }}</a></h5>
-                                <div class="card-text"><p>{{ .Params.Description | markdownify }}</p></div>
+                                {{- with .Params.Description -}}<div class="card-text"><p>{{ . | markdownify }}</p></div>{{- end -}}
                                 <a href="{{ $link }}" class="card-link">Read More &raquo;</a>
                             </div>
                         </div>

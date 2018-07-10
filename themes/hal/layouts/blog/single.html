@@ -6,6 +6,20 @@
                 <header><h1 class="display-4">{{ .Title }}</h1></header>
                 {{ .Content }}
             </article>
+            <ul class="pagination mt-4">
+                <li><a class="mr-4" href="{{ .Parent.RelPermalink }}">&uarr; All Posts</a></li>
+                {{/*
+                    Posts are ordered using '.Paginator.Pages.ByDate.Reverse', that's why
+                    '.NextInSection' is the previous post
+                    '.PrevInSection' is the next post
+                */}}
+                {{ with .NextInSection }}
+                <li><a class="mr-4" href="{{ .RelPermalink }}" title="Previous Post">&larr; {{ .Title }}</a></li>
+                {{ end }}
+                {{ with .PrevInSection }}
+                <li><a class="mr-4" href="{{ .RelPermalink }}" title="Next Post">{{ .Title }} &rarr;</a></li>
+                {{ end }}
+            </ul>
         </main>
     </div>
 </div>

@@ -1,5 +1,5 @@
 {{ with .Get "caption" }}<p class="hal-image-caption">{{.}}</p>{{ end }}
-<div class="cocoen mb-3">
+<div class="cocoen mb-4">
     {{ if .Get "reverse" }}
         <img src="{{ .Get "after" | relURL }}" alt="">
         <img src="{{ .Get "before" | relURL }}" alt="">

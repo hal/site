@@ -6,5 +6,6 @@ When adding tags to blog posts, please choose from one of the following tags:
 - patching: Related to the runtime top level category
 - rbac: Related to the access control top level category
 - runtime: Related to the runtime top level category
+- security: Related to security settings, elytron and rbac
 
 If none of the tags above fit to your blog post, feel free to introduce a new tag and add it to the list above.

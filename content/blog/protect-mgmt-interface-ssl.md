@@ -100,12 +100,19 @@ The following dialog asks if the user wants to reload the host domain controller
 {{< screenshot src="/img/blog/ssl-wizard/ssl-wizard-11.png" >}}
 
 
-## Elytron resources under host controller
+## Elytron resources under host controller for domain mode
 
-The elytron resources are created under `/host=*/subsystem=elytron` path, to manage them you can use the model browser. You can open it by navigating to the HTTP Management Interface screen, then click at `Switch to expert mode` on the top right corner of the screen.
+This applies only for domain mode, the elytron resources are created under `/host=*/subsystem=elytron` path, to manage them you can use the model browser. You can open it by navigating to the HTTP Management Interface screen, then click at `Switch to expert mode` on the top right corner of the screen.
 
 {{< screenshot src="/img/blog/ssl-wizard/ssl-wizard-12.png" >}}
 
 The model browser and the created elytron resources.
 
 {{< screenshot src="/img/blog/ssl-wizard/ssl-wizard-13.png" >}}
+
+
+## Elytron resources under for standalone mode
+
+The elytron resources are created in the regular `/subsystem=elytron` path, under the `Configuration` top level menu, then go to `Subsystem` column.
+
+{{< screenshot src="/img/blog/ssl-wizard/ssl-wizard-14.png" >}}

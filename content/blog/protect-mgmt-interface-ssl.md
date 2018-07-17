@@ -111,7 +111,7 @@ The model browser and the created elytron resources.
 {{< screenshot src="/img/blog/ssl-wizard/ssl-wizard-13.png" >}}
 
 
-## Elytron resources under for standalone mode
+## Elytron resources for standalone mode
 
 The elytron resources are created in the regular `/subsystem=elytron` path, under the `Configuration` top level menu, then go to `Subsystem` column.
 

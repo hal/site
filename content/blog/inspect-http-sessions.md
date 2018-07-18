@@ -1,6 +1,6 @@
 ---
 title: "Inspect HTTP Sessions"
-date: 
+date: 2018-07-10T15:30:25+02:00
 description: "HAL supports many new operations to inspect the HTTP session of deployments."
 draft: true
 tags:

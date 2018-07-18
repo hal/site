@@ -9,7 +9,7 @@ In WildFly 13 the Infinispan subsystem introduces several new resources:
 
 - Remote Cache Container
 - Scattered Cache
-- HotRod Store 
+- Hot Rod Store 
 
 All of these resources are supported in the latest HAL version (3.0.3 and above). 
 
@@ -25,8 +25,8 @@ All caches of the selected cache container are now displayed in their own column
 
 {{< screenshot src="/img/blog/infinispan/scattered-cache.png" >}}
 
-## HotRod
+## Hot Rod
 
-In the application view of a cache you can choose the new HotRod store implementation.  
+In the application view of a cache you can choose the new Hot Rod store implementation.  
 
 {{< screenshot src="/img/blog/infinispan/hotrod.png" >}}

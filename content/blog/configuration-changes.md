@@ -14,7 +14,7 @@ Notes:
 - For this blog post, domain mode will be used.
 - After a domain or server restart all configuration changes are lost, because this is an in-memory logging.
 - If you want a persistent audit logging, you must use the audit logging feature on `/host=master/core-service=management/access=audit` path.
-- As in-meme, max-history memory impact.
+- You can control the number of changes to be kept in memory (`max-history` attribute), but be aware it will take up JVM memory so be careful about its size.
 
 ## What is a configuration change
 

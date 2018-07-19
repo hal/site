@@ -1,7 +1,7 @@
 ---
 title: "Log all configuration changes"
 date: 2018-07-17T15:30:25+02:00
-description: "How to log and display all configuration changes on a wildfly server"
+description: "How to log and display all configuration changes on a wildfly server."
 tags:
 - configuration
 - runtime

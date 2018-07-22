@@ -1,7 +1,9 @@
 ---
 title: "Contribute"
 date: 2018-03-08T16:30:37+01:00
-toc: true
+description: "Describes how to get in touch with us and file issues. Shows how to fork the GitHub repository and build the console. Gives instructions how to submit pull requests and contribute to the console."
+icon: "/img/people.png"
+weight: 100
 ---
 First off, thank you for considering contributing to HAL. It's people like you that make HAL such a great tool. HAL is an open source project and we love to receive contributions from our community — you! There are many ways to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into HAL itself.
 

@@ -23,27 +23,22 @@ theme = "hal"
 [[menu.global]]
   name = "Documentation"
   identifier = "documentation"
-  weight = 30
+  weight = 40
   url = "/documentation/"
 [[menu.global]]
   name = "Development"
   identifier = "development"
-  weight = 40
-  url = "/development/"
-[[menu.global]]
-  name = "Contribute"
-  identifier = "contribute"
   weight = 50
-  url = "/contribute/"
+  url = "/development/"
 [[menu.global]]
   name = "Releases"
   identifier = "releases"
-  weight = 60
+  weight = 70
   url = "/releases/"
 [[menu.global]]
   name = "Blog"
   identifier = "blog"
-  weight = 70
+  weight = 80
   url = "/blog/"
 
 [[menu.external]]
@@ -111,6 +106,11 @@ theme = "hal"
   weight = 210
   url = "/development/"
 [[menu.footer]]
+  name = "Roadmap"
+  parent = "learn"
+  weight = 220
+  url = "/documentation/roadmap/"
+[[menu.footer]]
   name = "Contribute"
   identifier = "contribute"
   weight = 30
@@ -118,7 +118,7 @@ theme = "hal"
   name = "How To"
   parent = "contribute"
   weight = 300
-  url = "/contribute/"
+  url = "/documentation/contribute/"
 [[menu.footer]]
   name = "Submit a Bug"
   parent = "contribute"

@@ -15,4 +15,4 @@ For the next minor releases we want to concentrate on stability, bug fixing and 
 - More Monitoring
 - Support for OpenShift
 
-Please [get in touch]({{< relref "contribute.md#get-in-touch" >}}) if you think anything important is missing on the roadmap.
+Please [get in touch]({{< relref "documentation/contribute.md#get-in-touch" >}}) if you think anything important is missing on the roadmap.

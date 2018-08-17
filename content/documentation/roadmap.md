@@ -15,6 +15,8 @@ For the next minor releases we want to concentrate on stability, bug fixing and 
 - [HAL-1503](https://issues.jboss.org/browse/HAL-1503): Console: Integrate SASL JGroups protocol with Elytron
 - [HAL-1509](https://issues.jboss.org/browse/HAL-1509): Creating a non-local cache container in web console fails
 
+For more details take a look at the list of [bugs](https://issues.jboss.org/browse/HAL-1492?filter=12334684), [enhancements](https://issues.jboss.org/browse/HAL-1303?filter=12334686) and [feature requests](https://issues.jboss.org/browse/HAL-1507?filter=12334685). We're always happy for you to step in and [contribute]({{< relref "/documentation/contribute.md" >}}) in any way. 
+
 # Long-Term
 
 Beyond that we've identified some major enhancements and topics we'd like to work on:

@@ -32,6 +32,7 @@ The maven build defines the following profiles:
    1. [`halconsole/hal-standalone`](https://hub.docker.com/r/halconsole/hal-standalone/) contains HAL standalone
    1. [`halconsole/hal-wildfly`](https://hub.docker.com/r/halconsole/hal-wildfly/) contains latest WildFly and and HAL 
 - `esdoc` Produces the JavaScript API documentation
+- `i18n` Compiles the console with language support for German, Spanish, French, Portuguese, Chinese and Japanese
 - `prod` Runs the GWT compiler using production settings. Minimizes the CSS and JavaScrip code. 
 - `release` Signs the maven artifacts, builds and attaches Javadoc
 - `site` Builds the maven site

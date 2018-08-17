@@ -6,7 +6,7 @@ icon: "/img/plug.png"
 toc: true
 weight: 40
 ---
-Extensions are a way to add features to the management console. They are written in JavaScript and should use the [JavaScript API]({{< relref "development/javascript-api" >}}) to build the UI and interact with the management interface.  
+Extensions are a way to add features to the management console. They are written in JavaScript and should use the [JavaScript API]({{< relref "/development/javascript-api" >}}) to build the UI and interact with the management interface.  
  
 # Architecture
 

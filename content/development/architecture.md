@@ -10,7 +10,7 @@ HAL is a client side RIA without server side dependencies. It is a GWT applicati
 
 We use the [model view presenter](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) pattern and [GWTP](https://dev.arcbees.com/gwtp/) for its implementation. The main business logic resides in presenters like the [`DataSourcePresenter`](https://github.com/hal/console/blob/develop/app/src/main/java/org/jboss/hal/client/configuration/subsystem/datasource/DataSourcePresenter.java). Presenters are responsible for holding state and talk to the management endpoint. The views are used to hold all UI related code. They leverage the [PatternFly](https://www.patternfly.org/) components and are implemented using [Elemento](https://github.com/hal/elemento). Views register event handlers for user interaction and interact with the presenters. The model in this scenario are usually instances of [`ModelNode`](https://github.com/hal/console/blob/develop/dmr/src/main/java/org/jboss/hal/dmr/ModelNode.java) which are the result of DMR operations. They're passed around between the presenters and views.
 
-For more details about the different parts of the console and how they work together see [building blocks]({{< relref "development/building-blocks.md" >}}).
+For more details about the different parts of the console and how they work together see [building blocks]({{< relref "/development/building-blocks.md" >}}).
 
 # Technical Stack
 
@@ -37,7 +37,7 @@ HAL consists of many different maven modules, each of which serves a specific pu
 | hal-core | Core HAL API |
 | hal-db | Thin wrapper around [PouchDB](https://pouchdb.com/) |
 | hal-dmr | DMR related code to execute operation, read results and work with model nodes |
-| hal-docker | Docker image to run the console in [independent mode]({{< relref "documentation/get-started.md#independent-mode" >}}) |
+| hal-docker | Docker image to run the console in [independent mode]({{< relref "/documentation/get-started.md#independent-mode" >}}) |
 | hal-flow | Execute asynchronous tasks in order |
 | hal-fraction | WildFly Swarm fraction for HAL |
 | hal-js | JavaScript related helper classes |
@@ -48,13 +48,13 @@ HAL consists of many different maven modules, each of which serves a specific pu
 | hal-processors | Annotation processors for code generation |
 | hal-resources | I18n resources, images and HTML snippets |
 | hal-spi | SPI related classes and annotations |
-| hal-standalone | Local [Undertow](http://undertow.io/) server to start the console in [independent mode]({{< relref "documentation/get-started.md#independent-mode" >}}) |
+| hal-standalone | Local [Undertow](http://undertow.io/) server to start the console in [independent mode]({{< relref "/documentation/get-started.md#independent-mode" >}}) |
 | hal-testsuite-resources | Maven setup to assemble classes from different modules and make them available as one dependency for the test suite |
 | hal-theme-parent | Different HAL themes |
 | hal-theme-eap | Theme used for [JBoss EAP](https://developers.redhat.com/products/eap/overview/) |
-| hal-theme-hal | Theme used for the [independent mode]({{< relref "documentation/get-started.md#independent-mode" >}}) |
+| hal-theme-hal | Theme used for the [independent mode]({{< relref "/documentation/get-started.md#independent-mode" >}}) |
 | hal-theme-wildfly | Theme used for [WildFly](http://wildfly.org/) |
-| hal-yarn | NPM / Yarn setup to start the console in [independent mode]({{< relref "documentation/get-started.md#independent-mode" >}}) |
+| hal-yarn | NPM / Yarn setup to start the console in [independent mode]({{< relref "/documentation/get-started.md#independent-mode" >}}) |
   \    
     
 ## Dependencies

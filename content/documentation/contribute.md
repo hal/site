@@ -11,7 +11,7 @@ Getting involved is easier than you think. All resources that you need are avail
 
 # Build it
 
-The first step to get started is to build HAL yourself. This requires creating a GitHub account, forking HAL, and cloning your private fork. The [build & run]({{< relref "development/build-run.md" >}}) page contains complete instructions for this.
+The first step to get started is to build HAL yourself. This requires creating a GitHub account, forking HAL, and cloning your private fork. The [build & run]({{< relref "/development/build-run.md" >}}) page contains complete instructions for this.
 
 # Get in Touch 
 

@@ -28,7 +28,7 @@ mvn clean install -Dgwt.skipCompilation
 
 The maven build defines the following profiles:
 
-- `docker` Produces the docker container [`halconsole/hal-standalone`](https://hub.docker.com/r/halconsole/hal-standalone/) which runs the console in [standalone mode]({{< relref "/documentation/get-started.md#standalone-mode" >}})
+- `docker` Produces the docker container [`halconsole/hal`](https://hub.docker.com/r/halconsole/hal/) which runs the console in [standalone mode]({{< relref "/documentation/get-started.md#standalone-mode" >}})
 - `esdoc` Produces the JavaScript API documentation
 - `i18n` Compiles the console with language support for German, Spanish, French, Portuguese, Chinese and Japanese
 - `prod` Runs the GWT compiler using production settings. Minimizes the CSS and JavaScrip code. 

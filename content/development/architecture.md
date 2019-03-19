@@ -6,7 +6,7 @@ icon: "/img/building.png"
 toc: true
 weight: 20
 ---
-HAL is a client side RIA without server side dependencies. It is a GWT application - which means it's written almost completely in Java. GWT is used to transpile the Java code into a bunch of JavaScript, HTML and CSS files. HAL uses some external JavaScript libraries as well. These dependencies are managed using [Yarn](https://yarnpkg.com/en/) which is in turn integrated into the Maven build using the [`maven-frontend-plugin`](https://github.com/eirslett/frontend-maven-plugin). Take a look at the [`bower.json`](https://github.com/hal/console/blob/develop/app/bower.json) too see all JavaScript dependencies.
+HAL is a client side RIA without server side dependencies. It is a GWT application - which means it's written almost completely in Java. GWT is used to transpile the Java code into a bunch of JavaScript, HTML and CSS files. HAL uses some external JavaScript libraries as well. These dependencies are managed using [NPM](https://www.npmjs.com) which is in turn integrated into the Maven build using the [`maven-frontend-plugin`](https://github.com/eirslett/frontend-maven-plugin). Take a look at the [`bower.json`](https://github.com/hal/console/blob/develop/app/bower.json) too see all JavaScript dependencies.
 
 We use the [model view presenter](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) pattern and [GWTP](https://dev.arcbees.com/gwtp/) for its implementation. The main business logic resides in presenters like the [`DataSourcePresenter`](https://github.com/hal/console/blob/develop/app/src/main/java/org/jboss/hal/client/configuration/subsystem/datasource/DataSourcePresenter.java). Presenters are responsible for holding state and talk to the management endpoint. The views are used to hold all UI related code. They leverage the [PatternFly](https://www.patternfly.org/) components and are implemented using [Elemento](https://github.com/hal/elemento). Views register event handlers for user interaction and interact with the presenters. The model in this scenario are usually instances of [`ModelNode`](https://github.com/hal/console/blob/develop/dmr/src/main/java/org/jboss/hal/dmr/ModelNode.java) which are the result of DMR operations. They're passed around between the presenters and views.
 
@@ -42,6 +42,7 @@ HAL consists of many different maven modules, each of which serves a specific pu
 | hal-fraction | WildFly Swarm fraction for HAL |
 | hal-js | JavaScript related helper classes |
 | hal-meta | Metadata related classes to encapsulate the different parts of the resource descriptions |
+| hal-npm | NPM setup to start the console in [standalone mode]({{< relref "/documentation/get-started.md#standalone-mode" >}}) |
 | hal-parent | Parent POM for all other modules |
 | hal-parent-with-dependencies | Parent POM for all other modules except `bom` |
 | hal-parent-with-gwt | Parent POM for all GWT related modules |
@@ -54,7 +55,6 @@ HAL consists of many different maven modules, each of which serves a specific pu
 | hal-theme-eap | Theme used for [JBoss EAP](https://developers.redhat.com/products/eap/overview/) |
 | hal-theme-hal | Theme used for the [standalone mode]({{< relref "/documentation/get-started.md#standalone-mode" >}}) |
 | hal-theme-wildfly | Theme used for [WildFly](http://wildfly.org/) |
-| hal-yarn | NPM / Yarn setup to start the console in [standalone mode]({{< relref "/documentation/get-started.md#standalone-mode" >}}) |
   \    
     
 ## Dependencies

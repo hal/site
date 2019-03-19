@@ -43,13 +43,13 @@ The package `hal-standalone.jar` starts an Undertow server at http://localhost:9
 1. `java -jar hal-standalone-<version>.jar [port]` 
 1. Open http://localhost:9090
   
-## YARN / NPM 
+## NPM 
 
-The yarn package [`hal-console`](https://www.npmjs.com/package/hal-console) launches a local web server at http://localhost:3000. You can specify a different port as command line parameter:
+The npm package [`hal-console`](https://www.npmjs.com/package/hal-console) launches a local web server at http://localhost:3000. You can specify a different port using the PORT environment variable:
 
 1. Add http://localhost:3000 as allowed origin
-1. `yarn install -g hal-console`
-1. `hal-console [port]`
+1. `npm install hal-console`
+1. `[PORT=dddd] node hal-console`
 
 ## GitHub Pages
 

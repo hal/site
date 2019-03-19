@@ -37,7 +37,7 @@ HAL consists of many different maven modules, each of which serves a specific pu
 | hal-core | Core HAL API |
 | hal-db | Thin wrapper around [PouchDB](https://pouchdb.com/) |
 | hal-dmr | DMR related code to execute operation, read results and work with model nodes |
-| hal-docker | Docker image to run the console in [independent mode]({{< relref "/documentation/get-started.md#independent-mode" >}}) |
+| hal-docker | Docker image to run the console in [standalone mode]({{< relref "/documentation/get-started.md#standalone-mode" >}}) |
 | hal-flow | Execute asynchronous tasks in order |
 | hal-fraction | WildFly Swarm fraction for HAL |
 | hal-js | JavaScript related helper classes |
@@ -48,13 +48,13 @@ HAL consists of many different maven modules, each of which serves a specific pu
 | hal-processors | Annotation processors for code generation |
 | hal-resources | I18n resources, images and HTML snippets |
 | hal-spi | SPI related classes and annotations |
-| hal-standalone | Local [Undertow](http://undertow.io/) server to start the console in [independent mode]({{< relref "/documentation/get-started.md#independent-mode" >}}) |
+| hal-standalone | Local [Undertow](http://undertow.io/) server to start the console in [standalone mode]({{< relref "/documentation/get-started.md#standalone-mode" >}}) |
 | hal-testsuite-resources | Maven setup to assemble classes from different modules and make them available as one dependency for the test suite |
 | hal-theme-parent | Different HAL themes |
 | hal-theme-eap | Theme used for [JBoss EAP](https://developers.redhat.com/products/eap/overview/) |
-| hal-theme-hal | Theme used for the [independent mode]({{< relref "/documentation/get-started.md#independent-mode" >}}) |
+| hal-theme-hal | Theme used for the [standalone mode]({{< relref "/documentation/get-started.md#standalone-mode" >}}) |
 | hal-theme-wildfly | Theme used for [WildFly](http://wildfly.org/) |
-| hal-yarn | NPM / Yarn setup to start the console in [independent mode]({{< relref "/documentation/get-started.md#independent-mode" >}}) |
+| hal-yarn | NPM / Yarn setup to start the console in [standalone mode]({{< relref "/documentation/get-started.md#standalone-mode" >}}) |
   \    
     
 ## Dependencies

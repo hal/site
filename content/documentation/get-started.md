@@ -8,16 +8,16 @@ weight: 10
 ---
 The HAL management console is part of every WildFly and JBoss EAP installation. To get started simply fire up your browser and open http://localhost:9990. 
 
-# Independent Mode
+# Standalone Mode
 
 {{< imgflow src="/img/documentation/connect.png" float="right" >}}
-Besides that you can run the console on its own aka *independent mode*. HAL is a RIA with no server side dependencies. When run on its own, HAL will show a dialog when it's started. You have to provide the URL of the management endpoint you want to connect to. This is typically the one which uses port 9990. You can add as many endpoints as you want. They're stored in the browser local storage and survive a browser restart. 
+Besides that you can run the console on its own aka *standalone mode*. HAL is a RIA with no server side dependencies. When run on its own, HAL will show a dialog when it's started. You have to provide the URL of the management endpoint you want to connect to. This is typically the one which uses port 9990. You can add as many endpoints as you want. They're stored in the browser local storage and survive a browser restart. 
 
-If you want to skip the connection dialog and connect to an previously defined endpoint, use the `connect` request parameter. If the console runs on port 9090, you'd use an URL like http://localhost:9090/?connect=Development.
+If you want to skip the connection dialog and connect to a previously defined endpoint, use the `connect` request parameter. If the console runs on port 9090, you'd use an URL like http://localhost:9090/?connect=Development.
 
-The independent mode allows you to manage different WildFly and / or JBoss EAP instances using the same console. Furthermore you can always use the latest HAL version.
+The standalone mode allows you to manage different WildFly and / or JBoss EAP instances using the same console. Furthermore you can always use the latest HAL version.
 
-There are different ways to use the independent mode. All of them require to configure the allowed origins of the http(s) management endpoint:
+There are different ways to use the standalone mode. All of them require to configure the allowed origins of the http(s) management endpoint:
 {{</ imgflow >}}
 
 **Standalone Mode**

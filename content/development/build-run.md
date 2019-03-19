@@ -28,7 +28,7 @@ mvn clean install -Dgwt.skipCompilation
 
 The maven build defines the following profiles:
 
-- `docker` Produces the docker container [`halconsole/hal-standalone`](https://hub.docker.com/r/halconsole/hal-standalone/) which runs the console in [independent mode]({{< relref "/documentation/get-started.md#independent-mode" >}})
+- `docker` Produces the docker container [`halconsole/hal-standalone`](https://hub.docker.com/r/halconsole/hal-standalone/) which runs the console in [standalone mode]({{< relref "/documentation/get-started.md#standalone-mode" >}})
 - `esdoc` Produces the JavaScript API documentation
 - `i18n` Compiles the console with language support for German, Spanish, French, Portuguese, Chinese and Japanese
 - `prod` Runs the GWT compiler using production settings. Minimizes the CSS and JavaScrip code. 
@@ -80,7 +80,7 @@ This will start the development mode. Wait until you see a message like
 00:00:15,703 [INFO] Code server started in 15.12 s ms
 ```
 
-Then open http://localhost:8888/dev.html in your browser and connect to your WildFly / JBoss EAP instance as described in [independent mode]({{< relref "/documentation/get-started.md#independent-mode" >}}). 
+Then open http://localhost:8888/dev.html in your browser and connect to your WildFly / JBoss EAP instance as described in [standalone mode]({{< relref "/documentation/get-started.md#standalone-mode" >}}). 
 
 # Debug
 

@@ -19,7 +19,7 @@ There are many ways to get in touch with us:
 
 <ul class="fa-ul">
   <li><span class="fa-li"><i class="far fa-envelope"></i></span>HAL is part of Wildfly and hence you can post questions to the <a href="https://community.jboss.org/en/wildfly?view=discussions">WildFly user forums.</a></li>
-  <li><span class="fa-li"><i class="far fa-comments"></i></span>You can also use <a href="https://www.hipchat.com/">HipChat</a> for real-time communications. Join us in the <a href="https://www.hipchat.com/gFOhnVQke">WildFly user room</a>.</li>
+  <li><span class="fa-li"><i class="far fa-comments"></i></span>You can also use <a href="https://www.zulipchat.com/">Zulip</a> for real-time communications. Join us in the <a href="https://wildfly.zulipchat.com">WildFly user room</a>.</li>
   <li><span class="fa-li"><i class="fab fa-gitter"></i></span>Finally you can find us also on <a href="https://gitter.im/">Gitter</a> in the <a href="https://gitter.im/hal/console">HAL console room</a>.</li>
 </ul>
 

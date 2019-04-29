@@ -62,4 +62,4 @@ GitHub pages are served from https so you need to secure the management interfac
 
 ## Docker
 
-Finally you can use the docker image [`halconsole/hal`](https://hub.docker.com/r/halconsole/hal/) which wraps an Undertow server inside a docker container. Follow the steps at https://hub.docker.com/r/halconsole/hal-standalone/ to get started. 
+Finally you can use the docker image [`halconsole/hal`](https://hub.docker.com/r/halconsole/hal/) which wraps an Undertow server inside a docker container. Follow the steps at https://hub.docker.com/r/halconsole/hal/ to get started. 

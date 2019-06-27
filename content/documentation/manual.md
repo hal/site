@@ -105,6 +105,7 @@ In general deployments can have different states:
 - enabled / disabled
 - managed / unmanaged
 - archived / exploded
+{{</ imgflow >}}
 
 ## Enabled / Disabled
 
@@ -129,7 +130,6 @@ Managed deployments have a number of benefits over unmanaged:
 Managed and unmanaged deployments can be 'exploded', i.e. on the filesystem in the form of a directory structure whose structure corresponds to an unzipped version of the archive. An exploded deployment can be convenient to administer if your administrative processes involve inserting or replacing files from a base version in order to create a version tailored for a particular use (for example, copy in a base deployment and then copy in a jboss-web.xml file to tailor a deployment for use in WildFly.) Exploded deployments are also nice in some development scenarios, as you can replace static content (e.g. .html, .css) files in the deployment and have the new content visible immediately without requiring a redeploy.
 
 Please note that you have to disable a deployment, before you can explode it. Once exploded you can use the console to browse the deployment's content, add, replace or remove files. 
-{{</ imgflow >}}
 
 # Configuration
 

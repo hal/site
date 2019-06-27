@@ -31,7 +31,7 @@ The maven build defines the following profiles:
 - `docker` Produces the docker container [`halconsole/hal`](https://hub.docker.com/r/halconsole/hal/) which runs the console in [standalone mode]({{< relref "/documentation/get-started.md#standalone-mode" >}})
 - `esdoc` Produces the JavaScript API documentation
 - `i18n` Compiles the console with language support for German, Spanish, French, Portuguese, Chinese and Japanese
-- `prod` Runs the GWT compiler using production settings. Minimizes the CSS and JavaScrip code. 
+- `prod` Runs the GWT compiler using production settings. Minimizes the CSS and JavaScript code. 
 - `release` Signs the maven artifacts, builds and attaches Javadoc
 - `site` Builds the maven site
 - `theme-eap` Applies the EAP theme

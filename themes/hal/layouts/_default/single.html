@@ -12,7 +12,7 @@
                         <nav class="hal-breadcrumb" aria-label="breadcrumb">
                             <h6>You're here:</h6>
                             <ol class="breadcrumb bg-white py-0">
-                                {{- partial "breadcrumb.html" (dict "currentPage" .Page "id" .UniqueID) -}}
+                                {{- partial "breadcrumb.html" (dict "currentPage" .Page "id" .File.UniqueID) -}}
                             </ol>
                         </nav>
                         <hr/>
@@ -27,7 +27,7 @@
                 {{- if $breadcrumb -}}
                     <nav class="hal-breadcrumb-only float-right" aria-label="breadcrumb">
                         <ol class="breadcrumb bg-white pr-0 pb-0">
-                            {{- partial "breadcrumb.html" (dict "currentPage" .Page "id" .UniqueID) -}}
+                            {{- partial "breadcrumb.html" (dict "currentPage" .Page "id" .File.UniqueID) -}}
                         </ol>
                     </nav>
                 {{- end -}}

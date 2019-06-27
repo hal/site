@@ -6,7 +6,7 @@
                 <h6>{{ .Name }}</h6>
                 <ul class="list-unstyled">
                     {{- range .Children -}}
-                        <li><a class="small" href="{{ .URL }}">{{ .Name }}</a></li>
+                    <li><a class="small" href="{{ .URL }}">{{ .Name }}</a></li>
                     {{- end -}}
                 </ul>
             </div>
@@ -24,9 +24,8 @@
                     <li><span class="fas fa-wrench"></span> Made with <a href="https://gohugo.io/">Hugo</a> static site
                         generator.
                     </li>
-                    <li><span class="fas fa-code-branch"></span> This website is open source! If you want to improve it, <a
-                            href="http://github.com/hal/site">fork the project</a> and send a pull
-                        request.
+                    <li><span class="fas fa-code-branch"></span> This website is open source! If you want to improve it,
+                        <a href="https://github.com/hal/site">fork the project</a> and send a pull request.
                     </li>
                 </ul>
             </div>
@@ -34,5 +33,5 @@
     </div>
 </footer>
 <div class="d-flex justify-content-center p-2 m-2">
-    <a href="http://www.redhat.com/"><img src="https://static.jboss.org/theme/images/common/redhat_logo.png"></a>
+    <a href="https://www.redhat.com/"><img src="{{ "/img/redhat.svg" | relURL }}" alt="" class="img-fluid" style="width: 100px"/></a>
 </div>

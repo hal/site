@@ -2,7 +2,7 @@
 <html lang="{{ .Lang }}">
 <head>
     {{ partial "meta.html" . }}
-    {{ .Hugo.Generator }}
+    {{ hugo.Generator }}
     <link rel="canonical" href="{{ .Permalink }}">
     <title>{{ block "title" . }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
     {{ template "_internal/google_analytics_async.html" . }}

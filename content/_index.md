@@ -21,9 +21,5 @@ features:
   - heading: Access Control
     icon: /img/shield.png
     teaser: Use case restrictions based on a role based access model. Assign roles to users and groups. See only those resources you have access to. 
-
-  - heading: Extensions
-    icon: /img/plug.png
-    teaser: Customize the console using runtime extensions and the JavaScript API.
 ---
 HAL is the project name for the WildFly and JBoss EAP management console.

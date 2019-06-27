@@ -16,29 +16,24 @@ theme = "hal"
   weight = 10
   url = "/"
 [[menu.global]]
-  name = "What's New"
-  identifier = "whats-new"
-  weight = 20
-  url = "/whats-new/"
-[[menu.global]]
   name = "Documentation"
   identifier = "documentation"
-  weight = 40
+  weight = 20
   url = "/documentation/"
 [[menu.global]]
   name = "Development"
   identifier = "development"
-  weight = 50
+  weight = 30
   url = "/development/"
 [[menu.global]]
   name = "Releases"
   identifier = "releases"
-  weight = 70
+  weight = 40
   url = "/releases/"
 [[menu.global]]
   name = "Blog"
   identifier = "blog"
-  weight = 80
+  weight = 50
   url = "/blog/"
 
 [[menu.external]]
@@ -54,11 +49,11 @@ theme = "hal"
   post = "fab fa-github"
   url = "https://github.com/hal/console"
 [[menu.external]]
-  name = "HipChat"
-  identifier = "hipchat"
+  name = "Zulip"
+  identifier = "zulip"
   weight = 30
   post = "far fa-comments"
-  url = "https://www.hipchat.com/gFOhnVQke"
+  url = "https://wildfly.zulipchat.com"
 [[menu.external]]
   name = "Gitter"
   identifier = "gitter"
@@ -80,7 +75,7 @@ theme = "hal"
   name = "WildFly"
   parent = "related"
   weight = 100
-  url = "http://wildfly.org/"
+  url = "https://wildfly.org/"
 [[menu.footer]]
   name = "GWT"
   parent = "related"

@@ -5,9 +5,6 @@ description: "How to monitor active management operations and detect non-progres
 tags:
 - runtime
 ---
-
-
-
 A management operation is when any api client that connects to the Wildfly kernel and run operations to read from a running server or write a configuration. Examples of a management operation:
 
 * Add a datasource.

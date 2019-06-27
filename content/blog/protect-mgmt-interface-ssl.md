@@ -13,7 +13,7 @@ In WildFly 13, there is a wizard to enable the SSL for the HTTP management inter
 - Use an existing elytron key-store
 - Use mutual authentication with a client
 
-You can see more information about [elytron features](http://docs.wildfly.org/13/WildFly_Elytron_Security.html) and [HTTPS in general](https://www.instantssl.com/ssl-certificate-products/https.html).
+You can see more information about [elytron features](https://docs.wildfly.org/13/WildFly_Elytron_Security.html) and [HTTPS in general](https://www.instantssl.com/ssl-certificate-products/https.html).
 
 The wizard may create the following resources to add SSL to the HTTP Management Interface:
 

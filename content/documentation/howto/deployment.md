@@ -5,6 +5,6 @@ description: "Shows the various ways how to add deployments. Describes how to ma
 draft: true
 icon: "/img/bundle.png"
 toc: false
-weight: 30
+weight: 10
 ---
 Pending

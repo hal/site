@@ -1,7 +1,7 @@
 ---
 title: "Building Blocks"
 date: 2018-03-08T16:30:11+01:00
-description: "Explains the basic building blocks used in HAL. Read this page if you want to know more about the concepts and layers in HAL or if you plan to contribute to the codebase."
+description: "Explains the basic building blocks used in HAL from the developer's point of view. Read this page if you want to know more about the concepts and layers in HAL or if you plan to contribute to the codebase."
 icon: "/img/puzzle.png"
 toc: true
 weight: 30
@@ -158,9 +158,9 @@ Flow.series(new FlowContext(Progress.NOOP), check, add).subscribe(new Outcome<Fl
 
 # DMR
 
-This section assumes you're familiar with the basic concepts of the WildFly management model. If not please read the [admin guide](http://docs.wildfly.org/Admin_Guide.html) in the WildFly documentation.
+This section assumes you're familiar with the basic concepts of the WildFly management model. If not please read the [admin guide](https://docs.wildfly.org/Admin_Guide.html) in the WildFly documentation.
 
-The communication with the management endpoint, heavily relies on the [detyped management representation](http://docs.wildfly.org/Admin_Guide.html#Detyped_management_and_the_jboss-dmr_library) as defined in [JBoss DMR](https://github.com/jbossas/jboss-dmr). Due to restrictions in GWT (no threading, no IO) HAL comes with its own fork of JBoss DMR. It's a clone of the original code without all the pieces which don't make sense and don't work in GWT. 
+The communication with the management endpoint, heavily relies on the [detyped management representation](https://docs.wildfly.org/Admin_Guide.html#Detyped_management_and_the_jboss-dmr_library) as defined in [JBoss DMR](https://github.com/jbossas/jboss-dmr). Due to restrictions in GWT (no threading, no IO) HAL comes with its own fork of JBoss DMR. It's a clone of the original code without all the pieces which don't make sense and don't work in GWT. 
 
 HAL adds a thin layer of more strongly typed classes on top of that. They all extend from `org.jboss.hal.dmr.ModelNode` so you don't lose the flexibility, but are more specific so that the the code becomes more readable. 
 

@@ -8,9 +8,9 @@ tags:
 - configuration
 ---
 
-[HAL 3.1.2](http://hal.github.io/releases/) is released and packaged as part of [Wildfly 16](http://wildfly.org/downloads/) (which is in Candidate Release as of now and soon will release a Final).
+[HAL 3.1.2](https://hal.github.io/releases/) is released and packaged as part of [Wildfly 16](https://wildfly.org/downloads/) (which is in Candidate Release as of now and soon will release a Final).
 
-HAL 3.1.2 brings many new features, bug fixes and enhancements, checkout the [release notes](http://hal.github.io/releases/) since HAL 3.0.6, which is the version packaged in Wildfly 14 and 15.
+HAL 3.1.2 brings many new features, bug fixes and enhancements, checkout the [release notes](https://hal.github.io/releases/) since HAL 3.0.6, which is the version packaged in Wildfly 14 and 15.
 
 The new and noteworthy features are:
 

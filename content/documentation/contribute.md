@@ -28,7 +28,7 @@ There are many ways to get in touch with us:
 All HAL issues are tracked in the JBoss JIRA. Feel free to raise an issue, whether it's a bug report or a request for enhancement.
 
 <ul class="fa-ul">
-  <li><span class="fa-li"><i class="fas fa-bug"></i></span><a href="https://issues.jboss.org/browse/HAL">https://issues.jboss.org/browse/HAL</a>
+  <li><span class="fa-li"><i class="fas fa-bug"></i></span><a href="https://issues.redhat.com/browse/HAL">https://issues.redhat.com/browse/HAL</a>
 </ul>
 
 # Submit a Pull Request

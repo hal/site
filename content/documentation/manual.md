@@ -8,7 +8,7 @@ weight: 30
 ---
 The HAL management console features a rich user interface to configure, analyse and monitor the complete WildFly management model. The console uses six top level categories: homepage, deployments, configuration, runtime, patching and access control. In addition HAL uses a header and footer to provide access to global features and give feedback about various states of WildFly and HAL.
 
-This page gives a quick introduction to the main elements in the header and footer and the six top level categories. If you want to learn more about the most common use cases, take a look at the [recipes & how to]({{< relref "/documentation/howto.md" >}}) or visit our [YouTube channel](https://www.youtube.com/channel/UCcXaCVPvmzgLz74FnzlWoSg/).
+This page gives a quick introduction to the main elements in the header and footer and the six top level categories. If you want to learn more about the most common use cases, take a look at the [recipes & how to]({{< relref "/documentation/howto/_index.md" >}}) or visit our [YouTube channel](https://www.youtube.com/channel/UCcXaCVPvmzgLz74FnzlWoSg/).
 
 # Header
 

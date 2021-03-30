@@ -80,7 +80,7 @@ This will start the development mode. Wait until you see a message like
 00:00:15,703 [INFO] Code server started in 15.12 s ms
 ```
 
-Then open http://localhost:8888/dev.html in your browser and connect to your WildFly / JBoss EAP instance as described in [standalone mode]({{< relref "/documentation/get-started.md#standalone-mode" >}}). 
+Then open [http://localhost:8888/hal/dev.html](http://localhost:8888/hal/dev.html) in your browser and connect to your WildFly / JBoss EAP instance as described in [standalone mode]({{< relref "/documentation/get-started.md#standalone-mode" >}}). 
 
 # Debug
 

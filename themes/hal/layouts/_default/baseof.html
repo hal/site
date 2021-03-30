@@ -9,9 +9,6 @@
     {{ partial "favicon.html" . }}
     {{ partial "css.html" . }}
     {{ partial "script-header.html" . }}
-    {{ range .AlternativeOutputFormats -}}
-    {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" />` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
-    {{ end -}}
 </head>
 <body>
     {{ partial "nav.html" . }}
